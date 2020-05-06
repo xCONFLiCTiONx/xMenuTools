@@ -318,6 +318,7 @@ namespace MenuToolsProcessor
         }
         private void EnumerateFiles()
         {
+        TryAgain:;
             try
             {
                 label2.Text = Resources.FileCount;
@@ -338,11 +339,12 @@ namespace MenuToolsProcessor
             }
             catch
             {
-                // ignore
+                goto TryAgain;
             }
         }
         private void AddToFirewall(string operation)
         {
+        TryAgain:;
             try
             {
                 int dotCount = 0;
@@ -406,7 +408,7 @@ namespace MenuToolsProcessor
                             {
                                 continue;
                             }
-                            label2.Text = Path.GetFileName(item);
+                            label2.Text = Path.GetFileName(Path.GetDirectoryName(item)) + ": " + Path.GetFileName(item);
                             Application.DoEvents();
                             StartProcess.StartInfo("netsh.exe", arguments, true, true, true);
                         }
@@ -440,7 +442,7 @@ namespace MenuToolsProcessor
                             {
                                 continue;
                             }
-                            label2.Text = Path.GetFileName(item);
+                            label2.Text = Path.GetFileName(Path.GetDirectoryName(item)) + ": " + Path.GetFileName(item);
                             Application.DoEvents();
                             StartProcess.StartInfo("netsh.exe", arguments, true, true, true);
                         }
@@ -476,7 +478,7 @@ namespace MenuToolsProcessor
             }
             catch
             {
-                // ignore
+                goto TryAgain;
             }
         }
 
