@@ -9,7 +9,7 @@ namespace MenuToolsProcessor
 {
     public partial class Settings : Form
     {
-        private static readonly RegistryKey key = Registry.CurrentUser.OpenSubKey(SoftwareMenuTools, true);
+        private static RegistryKey key;
         private const string SoftwareMenuTools = "SOFTWARE\\MenuTools\\Settings";
         private bool AllFilesCheckBoxesChecked = true;
         private bool ShortcutsCheckBoxesChecked = true;
@@ -41,6 +41,8 @@ namespace MenuToolsProcessor
         public Settings()
         {
             InitializeComponent();
+            key = Registry.CurrentUser.CreateSubKey(SoftwareMenuTools);
+            key = Registry.CurrentUser.OpenSubKey(SoftwareMenuTools, true);
             System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
             FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
             string version = fvi.FileVersion;
@@ -580,7 +582,7 @@ namespace MenuToolsProcessor
             }
         }
 
-        private void PasteContentsCheckbox_CheckedChanged_1(object sender, EventArgs e)
+        private void PasteContentsCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             if (SystemFoldersCheckbox.Checked)
             {
@@ -671,6 +673,7 @@ namespace MenuToolsProcessor
                 DirBackComLinesCheckbox.Checked = true;
                 SystemFoldersCheckbox.Checked = true;
                 DirBackWallpaperCheckbox.Checked = true;
+                PasteContentsCheckbox.Checked = true;
             }
             else
             {
@@ -679,6 +682,7 @@ namespace MenuToolsProcessor
                 DirBackComLinesCheckbox.Checked = false;
                 SystemFoldersCheckbox.Checked = true;
                 DirBackWallpaperCheckbox.Checked = false;
+                PasteContentsCheckbox.Checked = false;
             }
         }
     }

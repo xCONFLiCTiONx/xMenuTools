@@ -397,7 +397,7 @@
             this.PasteContentsCheckbox.TabStop = false;
             this.PasteContentsCheckbox.Text = "Paste clipboard text to file";
             this.PasteContentsCheckbox.UseVisualStyleBackColor = true;
-            this.PasteContentsCheckbox.CheckedChanged += new System.EventHandler(this.PasteContentsCheckbox_CheckedChanged_1);
+            this.PasteContentsCheckbox.CheckedChanged += new System.EventHandler(this.PasteContentsCheckbox_CheckedChanged);
             // 
             // SystemFoldersCheckbox
             // 

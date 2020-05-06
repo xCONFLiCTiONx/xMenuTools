@@ -318,7 +318,6 @@ namespace MenuToolsProcessor
         }
         private void EnumerateFiles()
         {
-        TryAgain:;
             try
             {
                 label2.Text = Resources.FileCount;
@@ -337,22 +336,13 @@ namespace MenuToolsProcessor
 
                 CountingFilesOperation = false;
             }
-            catch (Exception ex)
+            catch
             {
-                DialogResult dialog = MessageBox.Show("Too many errors have occured. Please close any programs that may be locking the files in the queue or reboot Windows and try again." + Environment.NewLine + Environment.NewLine + "The exact error message is: " + ex.Message + Environment.NewLine + Environment.NewLine + "Would you like to continue anyway?", Resources.ErrorTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-                if (dialog == DialogResult.Yes)
-                {
-                    goto TryAgain;
-                }
-                else if (dialog == DialogResult.No)
-                {
-                    Environment.Exit(0);
-                }
+                // ignore
             }
         }
         private void AddToFirewall(string operation)
         {
-        TryAgain:;
             try
             {
                 int dotCount = 0;
@@ -484,17 +474,9 @@ namespace MenuToolsProcessor
                     Environment.Exit(0);
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                DialogResult dialog = MessageBox.Show("Too many errors have occured. Please close any programs that may be locking the files in the queue or reboot Windows and try again." + Environment.NewLine + Environment.NewLine + "The exact error message is: " + ex.Message + Environment.NewLine + Environment.NewLine + "Would you like to continue anyway?", Resources.ErrorTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-                if (dialog == DialogResult.Yes)
-                {
-                    goto TryAgain;
-                }
-                else if (dialog == DialogResult.No)
-                {
-                    Environment.Exit(0);
-                }
+                // ignore
             }
         }
 

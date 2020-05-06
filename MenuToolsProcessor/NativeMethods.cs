@@ -103,7 +103,7 @@ namespace MenuToolsProcessor
         [DllImport("user32.dll")]
         internal static extern IntPtr GetShellWindow();
 
-        [DllImport("Shell32.dll")]
+        [DllImport("shell32.dll")]
         internal static extern int SHChangeNotify(int eventId, int flags, IntPtr item1, IntPtr item2);
 
         // Create Shorcut in All Users Start Menu Programs

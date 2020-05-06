@@ -6,7 +6,7 @@ using System.Resources;
 // associated with an assembly.
 [assembly: AssemblyCompany("xCONFLiCTiONx")]
 [assembly: AssemblyProduct("MenuTools")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyCopyright("Copyright ©  2020")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -18,6 +18,6 @@ using System.Resources;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("5.5.0.0")]
-[assembly: AssemblyFileVersion("5.5.0.0")]
+[assembly: AssemblyVersion("5.6.0.0")]
+[assembly: AssemblyFileVersion("5.6.0.0")]
 [assembly: NeutralResourcesLanguage("en-US")]
