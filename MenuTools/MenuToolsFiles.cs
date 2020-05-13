@@ -7,6 +7,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Windows.Forms;
 
 [assembly: CLSCompliant(false)]
@@ -401,11 +402,42 @@ namespace MenuTools
             }
         }
         // Methods
+
+        public static bool HasExecutable(string path)
+        {
+            var executable = FindExecutable(path);
+            return !string.IsNullOrEmpty(executable);
+        }
+
+        private static string FindExecutable(string path)
+        {
+            var executable = new StringBuilder(1024);
+            FindExecutable(path, string.Empty, executable);
+            return executable.ToString();
+        }
+
+        [DllImport("shell32.dll", EntryPoint = "FindExecutable")]
+        private static extern long FindExecutable(string lpFile, string lpDirectory, StringBuilder lpResult);
         private void OpenNotepadMethod()
         {
-            foreach (string filePath in SelectedItemPaths)
+            if (!File.Exists(Path.GetTempPath() + "\\MenuTools.txt"))
             {
-                StartProcess.StartInfo("Notepad.exe", filePath);
+                File.Create(Path.GetTempPath() + "\\MenuTools.txt");
+            }
+            if (HasExecutable(Path.GetTempPath() + "\\MenuTools.txt"))
+            {
+                foreach (string filePath in SelectedItemPaths)
+                {
+                    StartProcess.StartInfo(
+                FindExecutable(Path.GetTempPath() + "\\MenuTools.txt"), filePath);
+                }
+            }
+            else
+            {
+                foreach (string filePath in SelectedItemPaths)
+                {
+                    StartProcess.StartInfo("Notepad.exe", filePath);
+                }
             }
         }
         private void BlockFirewallMethod()
