@@ -4,6 +4,7 @@ using Microsoft.Win32;
 using SharpShell.Attributes;
 using SharpShell.SharpContextMenu;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -420,16 +421,22 @@ namespace MenuTools
         private static extern long FindExecutable(string lpFile, string lpDirectory, StringBuilder lpResult);
         private void OpenNotepadMethod()
         {
-            if (!File.Exists(Path.GetTempPath() + "\\MenuTools.txt"))
+            string textFile = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\MenuTools\\Version.txt";
+            if (!File.Exists(textFile))
             {
-                File.Create(Path.GetTempPath() + "\\MenuTools.txt");
+                System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+                FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+                string version = fvi.FileVersion;
+
+                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\MenuTools");
+                File.WriteAllText(textFile, version);
             }
-            if (HasExecutable(Path.GetTempPath() + "\\MenuTools.txt"))
+            if (HasExecutable(textFile))
             {
                 foreach (string filePath in SelectedItemPaths)
                 {
                     StartProcess.StartInfo(
-                FindExecutable(Path.GetTempPath() + "\\MenuTools.txt"), filePath);
+                FindExecutable(textFile), filePath);
                 }
             }
             else

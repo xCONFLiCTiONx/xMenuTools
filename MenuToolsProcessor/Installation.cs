@@ -17,6 +17,13 @@ namespace MenuToolsProcessor
         {
             try
             {
+                System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+                FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+                string version = fvi.FileVersion;
+
+                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\MenuTools");
+                File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\MenuTools\\Version.txt", version);
+
                 RegistryKey MenuToolsSettings = Registry.CurrentUser.CreateSubKey("SOFTWARE\\MenuTools\\Settings");
                 RegistryKey InstallInfo = null;
                 if (ArchitectureCheck.ProcessorIs64Bit())
