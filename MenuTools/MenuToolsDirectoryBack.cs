@@ -291,9 +291,9 @@ namespace MenuTools
                         {
                             MenuToolsMenu.DropDownItems.Add(CommandLine);
 
-                            var appPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Packages", "Microsoft.WindowsTerminal_8wekyb3d8bbwe");
+                            string appPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Microsoft\WindowsApps\Microsoft.WindowsTerminal_8wekyb3d8bbwe\wt.exe");
 
-                            if (Directory.Exists(appPath))
+                            if (File.Exists(appPath))
                             {
                                 CommandLine.DropDownItems.Add(OpenTerminalAsUser);
                                 CommandLine.DropDownItems.Add(OpenTerminalAsAdmin);
@@ -407,13 +407,15 @@ namespace MenuTools
         // Methods
         private void OpenTerminalAsUserMethod()
         {
-            Directory.SetCurrentDirectory(FolderPath);
-            StartProcess.StartInfo(@"shell:appsFolder\Microsoft.WindowsTerminal_8wekyb3d8bbwe!App");
+            string appPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Microsoft\WindowsApps\Microsoft.WindowsTerminal_8wekyb3d8bbwe\wt.exe");
+
+            StartProcess.StartInfo(appPath, "-d " + FolderPath);
         }
         private void OpenTerminalAsAdminMethod()
         {
-            Directory.SetCurrentDirectory(FolderPath);
-            StartProcess.StartInfo(@"shell:appsFolder\Microsoft.WindowsTerminal_8wekyb3d8bbwe!App", null, false, true);
+            string appPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Microsoft\WindowsApps\Microsoft.WindowsTerminal_8wekyb3d8bbwe\wt.exe");
+
+            StartProcess.StartInfo(appPath, "-d " + FolderPath, false, true);
         }
         private void OpenCmdAsUserMethod()
         {
