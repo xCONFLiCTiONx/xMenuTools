@@ -390,6 +390,24 @@ namespace MenuTools.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Terminal.
+        /// </summary>
+        internal static string OpenTerminal {
+            get {
+                return ResourceManager.GetString("OpenTerminal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Terminal (Admin).
+        /// </summary>
+        internal static string OpenTerminalElevated {
+            get {
+                return ResourceManager.GetString("OpenTerminalElevated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon PS {
@@ -480,6 +498,16 @@ namespace MenuTools.Properties {
         internal static string TakeOwnershipText {
             get {
                 return ResourceManager.GetString("TakeOwnershipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon terminal {
+            get {
+                object obj = ResourceManager.GetObject("terminal", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
     }

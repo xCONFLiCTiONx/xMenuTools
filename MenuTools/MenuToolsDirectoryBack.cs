@@ -21,7 +21,7 @@ namespace MenuTools
         private readonly CultureInfo culture = CultureInfo.CurrentCulture;
         private ContextMenuStrip Menu;
         private ToolStripMenuItem MenuToolsMenu, CommandLine, Attributes, FindWallpaper, SystemFolders, PasteContents;
-        private ToolStripMenuItem OpenAsAdmin, OpenAsUser, OpenGitAsUser, OpenGitAsAdmin, OpenPSAsUser, OpenPSAsAdmin;
+        private ToolStripMenuItem OpenTerminalAsAdmin, OpenTerminalAsUser, OpenCmdAsAdmin, OpenCmdAsUser, OpenGitAsUser, OpenGitAsAdmin, OpenPSAsUser, OpenPSAsAdmin;
         private ToolStripMenuItem AttributesMenu, ShowHidden, HideHidden, ShowSystem, HideSystem;
         private ToolStripMenuItem AppDataFolder, ProgramDataFolder, UserStartMenuFolder, AllUsersStartMenuFolder, UserTempFolder;
 
@@ -51,17 +51,30 @@ namespace MenuTools
                         CommandLine.Text = Resources.CommandLines;
                         CommandLine.Name = "CommandLine";
 
-                        // OpenAsUser
-                        using (OpenAsUser = new ToolStripMenuItem())
+                        // OpenTerminalAsUser
+                        using (OpenTerminalAsUser = new ToolStripMenuItem())
                         {
-                            OpenAsUser.Text = Resources.CommandPrompt;
-                            OpenAsUser.Name = "OpenAsUser";
+                            OpenTerminalAsUser.Text = Resources.OpenTerminal;
+                            OpenTerminalAsUser.Name = "OpenTerminalAsUser";
                         }
-                        // OpenAsAdmin
-                        using (OpenAsAdmin = new ToolStripMenuItem())
+                        // OpenTerminalAsAdmin
+                        using (OpenTerminalAsAdmin = new ToolStripMenuItem())
                         {
-                            OpenAsAdmin.Text = Resources.CommandPromptElevated;
-                            OpenAsAdmin.Name = "OpenAsAdmin";
+                            OpenTerminalAsAdmin.Text = Resources.OpenTerminalElevated;
+                            OpenTerminalAsAdmin.Name = "OpenTerminalAsAdmin";
+                        }
+
+                        // OpenCmdAsUser
+                        using (OpenCmdAsUser = new ToolStripMenuItem())
+                        {
+                            OpenCmdAsUser.Text = Resources.CommandPrompt;
+                            OpenCmdAsUser.Name = "OpenCmdAsUser";
+                        }
+                        // OpenCmdAsAdmin
+                        using (OpenCmdAsAdmin = new ToolStripMenuItem())
+                        {
+                            OpenCmdAsAdmin.Text = Resources.CommandPromptElevated;
+                            OpenCmdAsAdmin.Name = "OpenCmdAsAdmin";
                         }
 
                         // OpenGitAsUser
@@ -200,7 +213,8 @@ namespace MenuTools
             // Icons
             MenuToolsMenu.Image = Resources.MAIN_ICON.ToBitmap();
             CommandLine.Image = Resources.cmd.ToBitmap();
-            OpenAsUser.Image = Resources.cmd.ToBitmap();
+            OpenTerminalAsUser.Image = Resources.terminal.ToBitmap();
+            OpenCmdAsUser.Image = Resources.cmd.ToBitmap();
             OpenGitAsUser.Image = Resources.GitCmd.ToBitmap();
             OpenPSAsUser.Image = Resources.PS.ToBitmap();
             Attributes.Image = Resources.FileAttributes.ToBitmap();
@@ -217,8 +231,10 @@ namespace MenuTools
             AddMenuItems();
 
             // Subscriptions
-            OpenAsUser.Click += (sender, args) => OpenAsUserMethod();
-            OpenAsAdmin.Click += (sender, args) => OpenAsAdminMethod();
+            OpenTerminalAsUser.Click += (sender, args) => OpenTerminalAsUserMethod();
+            OpenTerminalAsAdmin.Click += (sender, args) => OpenTerminalAsAdminMethod();
+            OpenCmdAsUser.Click += (sender, args) => OpenCmdAsUserMethod();
+            OpenCmdAsAdmin.Click += (sender, args) => OpenCmdAsAdminMethod();
             OpenGitAsUser.Click += (sender, args) => OpenGitAsUserMethod();
             OpenGitAsAdmin.Click += (sender, args) => OpenGitAsAdminMethod();
             OpenPSAsUser.Click += (sender, args) => OpenPSAsUserMethod();
@@ -274,8 +290,17 @@ namespace MenuTools
                         if (CommandLinesDirectoryBack.ToString() == "1")
                         {
                             MenuToolsMenu.DropDownItems.Add(CommandLine);
-                            CommandLine.DropDownItems.Add(OpenAsUser);
-                            CommandLine.DropDownItems.Add(OpenAsAdmin);
+
+                            var appPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Packages", "Microsoft.WindowsTerminal_8wekyb3d8bbwe");
+
+                            if (Directory.Exists(appPath))
+                            {
+                                CommandLine.DropDownItems.Add(OpenTerminalAsUser);
+                                CommandLine.DropDownItems.Add(OpenTerminalAsAdmin);
+                            }
+
+                            CommandLine.DropDownItems.Add(OpenCmdAsUser);
+                            CommandLine.DropDownItems.Add(OpenCmdAsAdmin);
                             CommandLine.DropDownItems.Add(new ToolStripSeparator());
                             string programFiles = Environment.ExpandEnvironmentVariables("%ProgramW6432%");
                             string programFilesX86 = Environment.ExpandEnvironmentVariables("%ProgramFiles(x86)%");
@@ -379,11 +404,21 @@ namespace MenuTools
             }
         }
         // Methods
-        private void OpenAsUserMethod()
+        private void OpenTerminalAsUserMethod()
+        {
+            Directory.SetCurrentDirectory(FolderPath);
+            StartProcess.StartInfo(@"shell:appsFolder\Microsoft.WindowsTerminal_8wekyb3d8bbwe!App");
+        }
+        private void OpenTerminalAsAdminMethod()
+        {
+            Directory.SetCurrentDirectory(FolderPath);
+            StartProcess.StartInfo(@"shell:appsFolder\Microsoft.WindowsTerminal_8wekyb3d8bbwe!App", null, false, true);
+        }
+        private void OpenCmdAsUserMethod()
         {
             StartProcess.StartInfo("cmd.exe", "/s /k pushd " + "\"" + FolderPath + "\"");
         }
-        private void OpenAsAdminMethod()
+        private void OpenCmdAsAdminMethod()
         {
             StartProcess.StartInfo("cmd.exe", "/s /k pushd " + "\"" + FolderPath + "\"", false, true);
         }
