@@ -297,6 +297,7 @@ namespace MenuTools
                             {
                                 CommandLine.DropDownItems.Add(OpenTerminalAsUser);
                                 CommandLine.DropDownItems.Add(OpenTerminalAsAdmin);
+                                CommandLine.DropDownItems.Add(new ToolStripSeparator());
                             }
 
                             CommandLine.DropDownItems.Add(OpenCmdAsUser);
