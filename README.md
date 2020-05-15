@@ -9,8 +9,8 @@ Extended context menu tools
 </p>
 
 ## Recent changes:
-Open with notepad: Uses the program set as default for opening .txt files.
-Added Windows Terminal to list of Command Lines in Directory Background
+* Open with notepad: Uses the program set as default for opening .txt files.
+* Added Windows Terminal to list of Command Lines in Directory Background
 
 ![ScreenShot1](https://raw.githubusercontent.com/mikeyhalla/MenuTools/master/Screenshot.jpg)
 
