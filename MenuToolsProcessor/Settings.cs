@@ -680,7 +680,7 @@ namespace MenuToolsProcessor
                 DirBackSelectAllCheckbox.Text = Resources.SelectAll;
                 DirBackAttributesCheckbox.Checked = false;
                 DirBackComLinesCheckbox.Checked = false;
-                SystemFoldersCheckbox.Checked = true;
+                SystemFoldersCheckbox.Checked = false;
                 DirBackWallpaperCheckbox.Checked = false;
                 PasteContentsCheckbox.Checked = false;
             }
