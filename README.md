@@ -2,10 +2,10 @@
 
 Extended context menu tools
 <p>
-<img src="https://img.shields.io/github/issues/xCONFLiCTiONx/MenuTools" alt="GitHub release">
-<img src="https://img.shields.io/github/forks/xCONFLiCTiONx/MenuTools" alt="GitHub release">
-<img src="https://img.shields.io/github/stars/xCONFLiCTiONx/MenuTools" alt="GitHub release">
-<img src="https://img.shields.io/github/license/xCONFLiCTiONx/MenuTools" alt="GitHub release">
+![Issues](https://img.shields.io/github/issues/xCONFLiCTiONx/MenuTools)
+![Forks](https://img.shields.io/github/issues/xCONFLiCTiONx/MenuTools)
+![Stars](https://img.shields.io/github/issues/xCONFLiCTiONx/MenuTools)
+![License](https://img.shields.io/github/issues/xCONFLiCTiONx/MenuTools)
 </p>
 
 ## Recent changes:
