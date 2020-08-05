@@ -1,14 +1,10 @@
 # MenuTools
 
 Extended context menu tools
-<p>
-<img src="https://img.shields.io/github/issues/xCONFLiCTiONx/MenuTools" alt="GitHub release">
-<img src="https://img.shields.io/github/forks/xCONFLiCTiONx/MenuTools" alt="GitHub release">
-<img src="https://img.shields.io/github/stars/xCONFLiCTiONx/MenuTools" alt="GitHub release">
-<img src="https://img.shields.io/github/license/xCONFLiCTiONx/MenuTools" alt="GitHub release">
-</p>
-
 [![GitHub issues](https://img.shields.io/github/issues/xCONFLiCTiONx/MenuTools)](https://github.com/xCONFLiCTiONx/MenuTools/issues)
+[![GitHub forks](https://img.shields.io/github/forks/xCONFLiCTiONx/MenuTools)](https://github.com/xCONFLiCTiONx/MenuTools/network/members)
+[![GitHub issues](https://img.shields.io/github/stars/xCONFLiCTiONx/MenuTools)](https://github.com/xCONFLiCTiONx/MenuTools/stargazers)
+[![GitHub](https://img.shields.io/github/license/xCONFLiCTiONx/MenuTools)](https://github.com/xCONFLiCTiONx/MenuTools/blob/master/LICENSE)
 
 ## Recent changes:
 * Open with notepad: Uses the program set as default for opening .txt files.
