@@ -1,6 +1,7 @@
 # MenuTools
 
-Extended context menu tools
+Extended context menu tools  
+
 [![GitHub issues](https://img.shields.io/github/issues/xCONFLiCTiONx/MenuTools)](https://github.com/xCONFLiCTiONx/MenuTools/issues)
 [![GitHub forks](https://img.shields.io/github/forks/xCONFLiCTiONx/MenuTools)](https://github.com/xCONFLiCTiONx/MenuTools/network/members)
 [![GitHub issues](https://img.shields.io/github/stars/xCONFLiCTiONx/MenuTools)](https://github.com/xCONFLiCTiONx/MenuTools/stargazers)
