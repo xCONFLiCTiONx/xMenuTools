@@ -7,7 +7,7 @@ Extended context menu tools
 [![GitHub issues](https://img.shields.io/github/stars/xCONFLiCTiONx/MenuTools)](https://github.com/xCONFLiCTiONx/MenuTools/stargazers)
 [![GitHub](https://img.shields.io/github/license/xCONFLiCTiONx/MenuTools)](https://github.com/xCONFLiCTiONx/MenuTools/blob/master/LICENSE)
 
-##Language
+## Language
 MenuTools is English only so if you want to use it and have a different language on your computer you should be able to install the English Language pack in Windows and it should run however you will likely have to set it as the default language due to using directory names as strings within the program.
 
 ## Recent changes:
