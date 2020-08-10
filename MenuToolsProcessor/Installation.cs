@@ -139,16 +139,30 @@ namespace MenuToolsProcessor
                     }
                 }
 
-                // Delete shortcut
-                StringBuilder allUserProfile = new StringBuilder(260);
-                NativeMethods.SHGetSpecialFolderPath(IntPtr.Zero, allUserProfile, NativeMethods.CSIDL_COMMON_STARTMENU, false);
-                string programs_path = Path.Combine(allUserProfile.ToString(), "Programs");
-                string shortcutFolder = Path.Combine(programs_path, @"MenuTools");
-                foreach (string file in Directory.GetFiles(shortcutFolder))
+                try
                 {
-                    File.Delete(file);
+                    // Delete shortcut
+                    StringBuilder allUserProfile = new StringBuilder(260);
+                    NativeMethods.SHGetSpecialFolderPath(IntPtr.Zero, allUserProfile, NativeMethods.CSIDL_COMMON_STARTMENU, false);
+                    string programs_path = Path.Combine(allUserProfile.ToString(), "Programs");
+                    string shortcutFolder = Path.Combine(programs_path, @"MenuTools");
+                    foreach (string file in Directory.GetFiles(shortcutFolder))
+                    {
+                        try
+                        {
+                            File.Delete(file);
+                        }
+                        catch
+                        {
+                            continue;
+                        }
+                    }
+                    Directory.Delete(shortcutFolder, true);
                 }
-                Directory.Delete(shortcutFolder, true);
+                catch (Exception)
+                {
+                    // continue
+                }
 
                 try
                 {
@@ -161,9 +175,9 @@ namespace MenuToolsProcessor
                         p.Start();
                     }
                 }
-                catch (Exception ex)
+                catch
                 {
-                    MessageForm(ex.Message + "\n\nNot all files could be removed. You will need to remove those files manually.", "MenuTools", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // continue
                 }
 
                 Environment.Exit(0);
@@ -193,14 +207,14 @@ namespace MenuToolsProcessor
                 }
                 if (InstallInfo == null)
                 {
-                    Installation.Install(GetAssembly.AssemblyInformation("directory"));
+                    Install(GetAssembly.AssemblyInformation("directory"));
                 }
                 else
                 {
                     DialogResult results = MessageForm(Resources.UninstallQuestion + Resources.MenuTools + Resources.UninstallNotice, Resources.MenuTools, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (results == DialogResult.Yes)
                     {
-                        Installation.Uninstall();
+                        Uninstall();
                     }
                 }
             }

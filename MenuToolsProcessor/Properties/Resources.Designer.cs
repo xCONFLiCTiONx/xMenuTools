@@ -324,6 +324,15 @@ namespace MenuToolsProcessor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to -i.
+        /// </summary>
+        internal static string InstallArgsShort {
+            get {
+                return ResourceManager.GetString("InstallArgsShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Installation is complete!.
         /// </summary>
         internal static string InstallationComplete {
@@ -582,6 +591,15 @@ namespace MenuToolsProcessor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to -s.
+        /// </summary>
+        internal static string SettingArgsShort {
+            get {
+                return ResourceManager.GetString("SettingArgsShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Success.
         /// </summary>
         internal static string SuccessTitle {
@@ -672,6 +690,15 @@ namespace MenuToolsProcessor.Properties {
         internal static string UninstallArgs {
             get {
                 return ResourceManager.GetString("UninstallArgs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -u.
+        /// </summary>
+        internal static string UninstallArgsShort {
+            get {
+                return ResourceManager.GetString("UninstallArgsShort", resourceCulture);
             }
         }
         

@@ -52,7 +52,7 @@ namespace MenuToolsProcessor
                         ExplorerRefresh.RefreshWindowsExplorer();
                     }
                     // Install
-                    if (args[0] == Resources.InstallArgs)
+                    if (args[0] == Resources.InstallArgs || args[0] == Resources.InstallArgsShort)
                     {
                         if (IsElevated)
                         {
@@ -64,7 +64,7 @@ namespace MenuToolsProcessor
                         }
                     }
                     // Uninstall
-                    if (args[0] == Resources.UninstallArgs)
+                    if (args[0] == Resources.UninstallArgs || args[0] == Resources.UninstallArgsShort)
                     {
                         if (IsElevated)
                         {
@@ -76,7 +76,7 @@ namespace MenuToolsProcessor
                         }
                     }
                     // Settings
-                    if (args[0] == Resources.SettingArgs)
+                    if (args[0] == Resources.SettingArgs || args[0] == Resources.SettingArgsShort)
                     {
                         Settings settings = new Settings();
                         using (settings)

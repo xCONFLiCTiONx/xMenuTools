@@ -41,7 +41,7 @@ namespace Deleter
                 }
                 catch (Exception)
                 {
-                    // ignore
+                    break;
                 }
 
                 Thread.Sleep(1000);
