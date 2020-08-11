@@ -114,7 +114,14 @@ namespace MenuTools
                             AttributesMenu.Text = Resources.AttributesMenu;
                             AttributesMenu.Name = "AttributesMenu";
                         }
-                        AttributesInfo.GetFileAttributes(FolderPath);
+                        try
+                        {
+                            AttributesInfo.GetFileAttributes(FolderPath);
+                        }
+                        catch (Exception ex)
+                        {
+                            StartProcess.StartInfo(AttributesInfo.GetAssembly.AssemblyInformation("directory") + @"\MenuTools.exe", "\"" + ex.Message + Environment.NewLine + ex.StackTrace + Environment.NewLine + ex.Source + Environment.NewLine + ex.GetBaseException() + Environment.NewLine + ex.TargetSite + "\"" + " -catchhandler");
+                        }
                         SetInternalAttributes();
                     }
                     // System Folders

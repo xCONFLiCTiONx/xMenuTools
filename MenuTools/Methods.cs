@@ -98,31 +98,38 @@ namespace MenuTools.Methods
         }
         internal static void GetFileAttributes(string folderPath)
         {
-            // Get : Set Attributes
-            FileAttributes attributes = File.GetAttributes(folderPath);
-            if ((attributes & FileAttributes.Hidden) == FileAttributes.Hidden)
+            try
             {
-                hidden = true;
+                // Get : Set Attributes
+                FileAttributes attributes = File.GetAttributes(folderPath);
+                if ((attributes & FileAttributes.Hidden) == FileAttributes.Hidden)
+                {
+                    hidden = true;
+                }
+                if ((attributes & FileAttributes.System) == FileAttributes.System)
+                {
+                    system = true;
+                }
+                if ((attributes & FileAttributes.ReadOnly) == FileAttributes.ReadOnly)
+                {
+                    readOnly = true;
+                }
+                if ((attributes & FileAttributes.Hidden) != FileAttributes.Hidden)
+                {
+                    hidden = false;
+                }
+                if ((attributes & FileAttributes.System) != FileAttributes.System)
+                {
+                    system = false;
+                }
+                if ((attributes & FileAttributes.ReadOnly) != FileAttributes.ReadOnly)
+                {
+                    readOnly = false;
+                }
             }
-            if ((attributes & FileAttributes.System) == FileAttributes.System)
+            catch (Exception ex)
             {
-                system = true;
-            }
-            if ((attributes & FileAttributes.ReadOnly) == FileAttributes.ReadOnly)
-            {
-                readOnly = true;
-            }
-            if ((attributes & FileAttributes.Hidden) != FileAttributes.Hidden)
-            {
-                hidden = false;
-            }
-            if ((attributes & FileAttributes.System) != FileAttributes.System)
-            {
-                system = false;
-            }
-            if ((attributes & FileAttributes.ReadOnly) != FileAttributes.ReadOnly)
-            {
-                readOnly = false;
+                StartProcess.StartInfo(AttributesInfo.GetAssembly.AssemblyInformation("directory") + @"\MenuTools.exe", "\"" + ex.Message + Environment.NewLine + ex.StackTrace + Environment.NewLine + ex.Source + Environment.NewLine + ex.GetBaseException() + Environment.NewLine + ex.TargetSite + "\"" + " -catchhandler");
             }
             // Get Attributes
             try
@@ -152,9 +159,13 @@ namespace MenuTools.Methods
                     }
                 }
             }
-            catch (Win32Exception ex)
+            catch (Win32Exception wex)
             {
-                StartProcess.StartInfo(AttributesInfo.GetAssembly.AssemblyInformation("directory") + @"\MenuTools.exe", "\"" + ex.Message + "\"" + " -catchhandler");
+                StartProcess.StartInfo(AttributesInfo.GetAssembly.AssemblyInformation("directory") + @"\MenuTools.exe", "\"" + wex.Message + Environment.NewLine + wex.StackTrace + Environment.NewLine + wex.Source + Environment.NewLine + wex.GetBaseException() + Environment.NewLine + wex.TargetSite + "\"" + " -catchhandler");
+            }
+            catch (Exception ex)
+            {
+                StartProcess.StartInfo(AttributesInfo.GetAssembly.AssemblyInformation("directory") + @"\MenuTools.exe", "\"" + ex.Message + Environment.NewLine + ex.StackTrace + Environment.NewLine + ex.Source + Environment.NewLine + ex.GetBaseException() + Environment.NewLine + ex.TargetSite + "\"" + " -catchhandler");
             }
         }
         internal static class GetAssembly

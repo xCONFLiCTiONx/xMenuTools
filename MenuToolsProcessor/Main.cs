@@ -96,7 +96,7 @@ namespace MenuToolsProcessor
             }
             catch (Exception ex)
             {
-                MessageForm(ex.GetBaseException() + Environment.NewLine + ex.TargetSite, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageForm(ex.Message + Environment.NewLine + ex.StackTrace + Environment.NewLine + ex.Source + Environment.NewLine + ex.GetBaseException() + Environment.NewLine + ex.TargetSite, "MenuTools", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 Environment.Exit(0);
             }
@@ -148,7 +148,7 @@ namespace MenuToolsProcessor
                     }
                     catch (Win32Exception ex)
                     {
-                        MessageForm(ex.Message + Environment.NewLine + ex.StackTrace, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        MessageForm(ex.Message + Environment.NewLine + ex.StackTrace + Environment.NewLine + ex.Source + Environment.NewLine + ex.GetBaseException() + Environment.NewLine + ex.TargetSite, "MenuTools", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 if (args[1] == Resources.CatchHandlerArgs)
@@ -205,8 +205,7 @@ namespace MenuToolsProcessor
             }
             catch (Exception ex)
             {
-
-                MessageForm(ex.Message + Environment.NewLine + ex.StackTrace, Resources.MenuTools, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageForm(ex.Message + Environment.NewLine + ex.StackTrace + Environment.NewLine + ex.Source + Environment.NewLine + ex.GetBaseException() + Environment.NewLine + ex.TargetSite, "MenuTools", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Environment.Exit(0);
             }
         }
@@ -249,7 +248,7 @@ namespace MenuToolsProcessor
                 }
                 catch (Exception ex)
                 {
-                    MessageForm(ex.Message + Environment.NewLine + ex.StackTrace, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    MessageForm(ex.Message + Environment.NewLine + ex.StackTrace + Environment.NewLine + ex.Source + Environment.NewLine + ex.GetBaseException() + Environment.NewLine + ex.TargetSite, "MenuTools", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     NoErrors = false;
                 }
             }
@@ -312,7 +311,7 @@ namespace MenuToolsProcessor
             }
             catch (Exception ex)
             {
-                MessageForm(ex.Message + Environment.NewLine + ex.StackTrace, Resources.MenuTools, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageForm(ex.Message + Environment.NewLine + ex.StackTrace + Environment.NewLine + ex.Source + Environment.NewLine + ex.GetBaseException() + Environment.NewLine + ex.TargetSite, "MenuTools", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Environment.Exit(0);
             }
         }

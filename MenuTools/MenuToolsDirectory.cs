@@ -3,6 +3,7 @@ using MenuTools.Properties;
 using Microsoft.Win32;
 using SharpShell.Attributes;
 using SharpShell.SharpContextMenu;
+using System;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -75,12 +76,26 @@ namespace MenuTools
                         {
                             foreach (string item in SelectedPath)
                             {
-                                AttributesInfo.GetFileAttributes(item);
+                                try
+                                {
+                                    AttributesInfo.GetFileAttributes(item);
+                                }
+                                catch (Exception ex)
+                                {
+                                    StartProcess.StartInfo(AttributesInfo.GetAssembly.AssemblyInformation("directory") + @"\MenuTools.exe", "\"" + ex.Message + Environment.NewLine + ex.StackTrace + Environment.NewLine + ex.Source + Environment.NewLine + ex.GetBaseException() + Environment.NewLine + ex.TargetSite + "\"" + " -catchhandler");
+                                }
                             }
                         }
                         else
                         {
-                            AttributesInfo.GetFileAttributes(SelectedPath.ToStringArray(false));
+                            try
+                            {
+                                AttributesInfo.GetFileAttributes(SelectedPath.ToStringArray(false));
+                            }
+                            catch (Exception ex)
+                            {
+                                StartProcess.StartInfo(AttributesInfo.GetAssembly.AssemblyInformation("directory") + @"\MenuTools.exe", "\"" + ex.Message + Environment.NewLine + ex.StackTrace + Environment.NewLine + ex.Source + Environment.NewLine + ex.GetBaseException() + Environment.NewLine + ex.TargetSite + "\"" + " -catchhandler");
+                            }
                         }
                         SetFileAttributes();
                     }

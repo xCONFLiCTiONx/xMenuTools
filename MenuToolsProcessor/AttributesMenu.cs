@@ -40,7 +40,14 @@ namespace MenuToolsProcessor
                 // Get : Set Attributes
                 foreach (string arg in args)
                 {
-                    AttributesInfo.GetFileAttributes(arg);
+                    try
+                    {
+                        AttributesInfo.GetFileAttributes(arg);
+                    }
+                    catch (Exception ex)
+                    {
+                        StartProcess.StartInfo(AppDomain.CurrentDomain.BaseDirectory + "MenuTools.exe", "\"" + ex.Message + Environment.NewLine + ex.StackTrace + Environment.NewLine + ex.Source + Environment.NewLine + ex.GetBaseException() + Environment.NewLine + ex.TargetSite + "\"" + " -catchhandler");
+                    }
                     ThePaths = args;
                     FilePath = arg;
                     DirectoryInfo DirectoryPath = new DirectoryInfo(FilePath);

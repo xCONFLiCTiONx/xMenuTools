@@ -184,7 +184,7 @@ namespace MenuToolsProcessor
             }
             catch (Exception ex)
             {
-                MessageForm(ex.Message + Environment.NewLine + ex.StackTrace, Resources.MenuTools, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageForm(ex.Message + Environment.NewLine + ex.StackTrace + Environment.NewLine + ex.Source + Environment.NewLine + ex.GetBaseException() + Environment.NewLine + ex.TargetSite, "MenuTools", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 Environment.Exit(0);
             }
@@ -220,7 +220,7 @@ namespace MenuToolsProcessor
             }
             catch (Exception ex)
             {
-                MessageForm(ex.Message + Environment.NewLine + ex.StackTrace, Resources.MenuTools, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageForm(ex.Message + Environment.NewLine + ex.StackTrace + Environment.NewLine + ex.Source + Environment.NewLine + ex.GetBaseException() + Environment.NewLine + ex.TargetSite, "MenuTools", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Environment.Exit(0);
             }
         }
@@ -257,7 +257,7 @@ namespace MenuToolsProcessor
             }
             catch (Exception ex)
             {
-                MessageForm(ex.Message + Environment.NewLine + ex.StackTrace, Resources.MenuTools, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageForm(ex.Message + Environment.NewLine + ex.StackTrace + Environment.NewLine + ex.Source + Environment.NewLine + ex.GetBaseException() + Environment.NewLine + ex.TargetSite, "MenuTools", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 Environment.Exit(0);
             }
