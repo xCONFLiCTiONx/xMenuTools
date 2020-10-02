@@ -6,6 +6,9 @@ namespace MenuToolsProcessor
     {
         public static DialogResult MessageForm(string text, string title = null, MessageBoxButtons buttons = MessageBoxButtons.OK, MessageBoxIcon icon = MessageBoxIcon.Information, MessageBoxDefaultButton defaultButton = MessageBoxDefaultButton.Button2)
         {
+            // Log this message for debugging
+
+
             using (Form form = new Form())
             {
                 form.Opacity = 0;

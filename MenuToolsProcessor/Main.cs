@@ -167,15 +167,22 @@ namespace MenuToolsProcessor
                 }
                 if (args[1] == Resources.FirewallFilesArgs)
                 {
-                    KeepAlive = true;
-                    NoErrors = true;
-                    string[] array = args[0].Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-
-                    Thread thread = new Thread(() => MultiSelectFirewallFiles(array))
+                    try
                     {
-                        IsBackground = true
-                    };
-                    thread.Start();
+                        KeepAlive = true;
+                        NoErrors = true;
+                        string[] array = args[0].Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+
+                        Thread thread = new Thread(() => MultiSelectFirewallFiles(array))
+                        {
+                            IsBackground = true
+                        };
+                        thread.Start();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageForm(ex.Message + Environment.NewLine + ex.StackTrace + Environment.NewLine + ex.Source + Environment.NewLine + ex.GetBaseException() + Environment.NewLine + ex.TargetSite, "MenuTools", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 if (args[1] == Resources.FirewallFolderArgs)
                 {
@@ -212,58 +219,74 @@ namespace MenuToolsProcessor
 
         private void MultiSelectFirewallFiles(string[] array)
         {
-            Invoke(new Action(() =>
+            try
             {
-                progressBar1.Enabled = true;
-
-                progressBar1.Style = ProgressBarStyle.Marquee;
-
-                PauseButton.Enabled = false;
-                StopButton.Enabled = false;
-
-                label3.Text = "Task:";
-
-                label2.Text = "Firewall";
-
-                label1.Text = "Add files to Windows Defender Firewall inbound and outbound rules.";
-            }));
-
-            foreach (string item in array)
-            {
-                try
+                Invoke(new Action(() =>
                 {
-                    MainFolderName = Path.GetFileName(item);
+                    progressBar1.Enabled = true;
 
-                    string path = Path.GetDirectoryName(item);
-                    string title = Path.GetFileName(path) + " - " + Path.GetFileName(item);
-                    string arguments = "advfirewall firewall add rule name=" + "\"" + MainFolderName + " - " + title + "\"" + " dir=out program=" + "\"" + item + "\"" + " action=block";
+                    progressBar1.Style = ProgressBarStyle.Marquee;
 
-                    StartProcess.StartInfo("netsh.exe", arguments, true, true, true);
+                    PauseButton.Enabled = false;
+                    StopButton.Enabled = false;
 
-                    path = Path.GetDirectoryName(item);
-                    title = Path.GetFileName(path) + " - " + Path.GetFileName(item);
-                    arguments = "advfirewall firewall add rule name=" + "\"" + MainFolderName + " - " + title + "\"" + " dir=in program=" + "\"" + item + "\"" + " action=block";
+                    label3.Text = "Task:";
 
-                    StartProcess.StartInfo("netsh.exe", arguments, true, true, true);
-                }
-                catch (Exception ex)
+                    label2.Text = "Firewall";
+
+                    label1.Text = "Add files to Windows Defender Firewall inbound and outbound rules.";
+                }));
+
+                foreach (string item in array)
                 {
-                    MessageForm(ex.Message + Environment.NewLine + ex.StackTrace + Environment.NewLine + ex.Source + Environment.NewLine + ex.GetBaseException() + Environment.NewLine + ex.TargetSite, "MenuTools", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    NoErrors = false;
-                }
-            }
-            Invoke(new Action(() =>
-            {
-                Hide();
-                if (NoErrors)
-                {
-                    DialogResult results = MessageForm(Resources.DialogMessageBlockFiles, Resources.DialogTitleSuccess, MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
-                    if (results == DialogResult.Yes)
+                    try
                     {
-                        StartProcess.StartInfo("wf.msc");
+                        MainFolderName = Path.GetFileName(item);
+
+                        string path = Path.GetDirectoryName(item);
+                        string title = Path.GetFileName(path) + " - " + Path.GetFileName(item);
+                        string arguments = "advfirewall firewall add rule name=" + "\"" + MainFolderName + " - " + title + "\"" + " dir=out program=" + "\"" + item + "\"" + " action=block";
+
+                        StartProcess.StartInfo("netsh.exe", arguments, true, true, true);
+
+                        path = Path.GetDirectoryName(item);
+                        title = Path.GetFileName(path) + " - " + Path.GetFileName(item);
+                        arguments = "advfirewall firewall add rule name=" + "\"" + MainFolderName + " - " + title + "\"" + " dir=in program=" + "\"" + item + "\"" + " action=block";
+
+                        StartProcess.StartInfo("netsh.exe", arguments, true, true, true);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageForm(ex.Message + Environment.NewLine + ex.StackTrace + Environment.NewLine + ex.Source + Environment.NewLine + ex.GetBaseException() + Environment.NewLine + ex.TargetSite, "MenuTools", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        NoErrors = false;
                     }
                 }
-            }));
+            }
+            catch (Exception ex)
+            {
+                MessageForm(ex.Message + Environment.NewLine + ex.StackTrace + Environment.NewLine + ex.Source + Environment.NewLine + ex.GetBaseException() + Environment.NewLine + ex.TargetSite, "MenuTools", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                NoErrors = false;
+            }
+
+            try
+            {
+                Invoke(new Action(() =>
+                {
+                    Hide();
+                    if (NoErrors)
+                    {
+                        DialogResult results = MessageForm(Resources.DialogMessageBlockFiles, Resources.DialogTitleSuccess, MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+                        if (results == DialogResult.Yes)
+                        {
+                            StartProcess.StartInfo("wf.msc");
+                        }
+                    }
+                }));
+            }
+            catch (Exception ex)
+            {
+                MessageForm(ex.Message + Environment.NewLine + ex.StackTrace + Environment.NewLine + ex.Source + Environment.NewLine + ex.GetBaseException() + Environment.NewLine + ex.TargetSite, "MenuTools", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             Environment.Exit(0);
         }
