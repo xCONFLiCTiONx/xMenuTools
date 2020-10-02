@@ -24,24 +24,7 @@ namespace xMenuToolsProcessor
             }
             EasyLogger.AddListener(EasyLogger.LogFile);
 
-            AppDomain.CurrentDomain.UnhandledException += AppDomain_UnhandledException;
-            Application.ThreadException += Application_ThreadException;
-            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
-
             Application.Run(new Main(args));
         }
-
-        #region Global Exception Handling
-        private static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
-        {
-            EasyLogger.Error("Application.ThreadException: Base Exception: " + e.Exception.GetBaseException() + Environment.NewLine + "Exception Message: " + e.Exception.Message);
-        }
-
-        private static void AppDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
-        {
-            EasyLogger.Error("AppDomain.UnhandledException: Exception Object: " + e.ExceptionObject + Environment.NewLine + "Exception Object: " + ((Exception)e.ExceptionObject).Message);
-        }
-
-        #endregion Global Exception Handling
     }
 }

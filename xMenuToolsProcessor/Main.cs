@@ -27,6 +27,7 @@ namespace xMenuToolsProcessor
         private bool KeepAlive = false;
         private readonly string CurrentUser = Environment.UserDomainName + "\\" + Environment.UserName;
         private bool NoErrors;
+        private bool Ready = false;
         private static bool IsElevated => WindowsIdentity.GetCurrent().Owner
                   .IsWellKnown(WellKnownSidType.BuiltinAdministratorsSid);
 
@@ -35,6 +36,8 @@ namespace xMenuToolsProcessor
             try
             {
                 InitializeComponent();
+
+                Shown += Main_Shown;
 
                 if (args.Length == 0)
                 {
@@ -100,6 +103,11 @@ namespace xMenuToolsProcessor
 
                 Environment.Exit(0);
             }
+        }
+
+        private void Main_Shown(object sender, EventArgs e)
+        {
+            Ready = true;
         }
 
         private void ExecuteCommands(string[] args)
@@ -222,21 +230,34 @@ namespace xMenuToolsProcessor
         {
             try
             {
-                Invoke(new Action(() =>
+                // wait for the form to load
+                while (!Ready)
                 {
-                    progressBar1.Enabled = true;
+                    Thread.Sleep(200);
+                    Application.DoEvents();
+                }
+                try
+                {
+                    Invoke(new Action(() =>
+                    {
+                        progressBar1.Enabled = true;
 
-                    progressBar1.Style = ProgressBarStyle.Marquee;
+                        progressBar1.Style = ProgressBarStyle.Marquee;
 
-                    PauseButton.Enabled = false;
-                    StopButton.Enabled = false;
+                        PauseButton.Enabled = false;
+                        StopButton.Enabled = false;
 
-                    label3.Text = "Task:";
+                        label3.Text = "Task:";
 
-                    label2.Text = "Firewall";
+                        label2.Text = "Firewall";
 
-                    label1.Text = "Add files to Windows Defender Firewall inbound and outbound rules.";
-                }));
+                        label1.Text = "Add files to Windows Defender Firewall inbound and outbound rules.";
+                    }));
+                }
+                catch (Exception ex)
+                {
+                    EasyLogger.Error(ex);
+                }
 
                 foreach (string item in array)
                 {
@@ -271,18 +292,31 @@ namespace xMenuToolsProcessor
 
             try
             {
-                Invoke(new Action(() =>
+                // wait for the form to load
+                while (!Ready)
                 {
-                    Hide();
-                    if (NoErrors)
+                    Thread.Sleep(200);
+                    Application.DoEvents();
+                }
+                try
+                {
+                    Invoke(new Action(() =>
                     {
-                        DialogResult results = MessageForm(Resources.DialogMessageBlockFiles, Resources.DialogTitleSuccess, MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
-                        if (results == DialogResult.Yes)
+                        Hide();
+                        if (NoErrors)
                         {
-                            StartProcess.StartInfo("wf.msc");
+                            DialogResult results = MessageForm(Resources.DialogMessageBlockFiles, Resources.DialogTitleSuccess, MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+                            if (results == DialogResult.Yes)
+                            {
+                                StartProcess.StartInfo("wf.msc");
+                            }
                         }
-                    }
-                }));
+                    }));
+                }
+                catch (Exception ex)
+                {
+                    EasyLogger.Error(ex);
+                }
             }
             catch (Exception ex)
             {
