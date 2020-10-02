@@ -1,9 +1,9 @@
-﻿using xMenuToolsProcessor.Properties;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
+using xMenuToolsProcessor.Properties;
 using static xMenuToolsProcessor.SendMessage;
 
 namespace xMenuToolsProcessor

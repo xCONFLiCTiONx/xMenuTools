@@ -1,6 +1,4 @@
-﻿using xMenuTools.Methods;
-using xMenuTools.Properties;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using SharpShell.Attributes;
 using SharpShell.SharpContextMenu;
 using System;
@@ -10,6 +8,8 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
+using xMenuTools.Methods;
+using xMenuTools.Properties;
 using static xMenuToolsProcessor.SendMessage;
 
 [assembly: CLSCompliant(false)]

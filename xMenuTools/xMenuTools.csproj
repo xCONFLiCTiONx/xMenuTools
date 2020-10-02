@@ -44,9 +44,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EasyLogger, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\xCONFLiCTiONx.Logger.1.6.0\lib\net40-client\EasyLogger.dll</HintPath>
-    </Reference>
     <Reference Include="SharpShell, Version=2.7.2.0, Culture=neutral, PublicKeyToken=f14dc899472fe6fb, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpShell.2.7.2\lib\net40-client\SharpShell.dll</HintPath>
     </Reference>
@@ -146,6 +143,10 @@
     <None Include="Resources\terminal.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EasyLogger\EasyLogger.csproj">
+      <Project>{e7d06aa7-a1fc-4582-8bbc-c8be27694bbb}</Project>
+      <Name>EasyLogger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\xMenuToolsProcessor\xMenuToolsProcessor.csproj">
       <Project>{97c2692a-6728-438d-a92e-00e3bbac0da9}</Project>
       <Name>xMenuToolsProcessor</Name>

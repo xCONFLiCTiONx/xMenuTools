@@ -43,9 +43,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EasyLogger, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\xCONFLiCTiONx.Logger.1.6.0\lib\net40-client\EasyLogger.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
@@ -122,7 +119,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="KeyFile.snk" />
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -149,6 +145,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\MAIN_ICON_256.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EasyLogger\EasyLogger.csproj">
+      <Project>{e7d06aa7-a1fc-4582-8bbc-c8be27694bbb}</Project>
+      <Name>EasyLogger</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

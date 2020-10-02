@@ -1,10 +1,10 @@
-﻿using xMenuToolsProcessor.Properties;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using System;
 using System.Globalization;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
+using xMenuToolsProcessor.Properties;
 using static xMenuToolsProcessor.SendMessage;
 
 namespace xMenuToolsProcessor
