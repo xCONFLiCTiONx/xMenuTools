@@ -12,6 +12,10 @@ namespace Deleter
         {
             InitializeComponent();
 
+            AppDomain.CurrentDomain.UnhandledException += AppDomain_UnhandledException;
+            Application.ThreadException += Application_ThreadException;
+            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+
             if (args.Length > 0)
             {
                 Thread t = new Thread(() => DELETER(args[0]))
@@ -29,6 +33,19 @@ namespace Deleter
 
             WindowState = FormWindowState.Normal;
         }
+
+        #region Global Exception Handling
+        private static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
+        {
+            EasyLogger.Error("Application.ThreadException: Base Exception: " + e.Exception.GetBaseException() + Environment.NewLine + "Exception Message: " + e.Exception.Message);
+        }
+
+        private static void AppDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            EasyLogger.Error("AppDomain.UnhandledException: Exception Object: " + e.ExceptionObject + Environment.NewLine + "Exception Object: " + ((Exception)e.ExceptionObject).Message);
+        }
+
+        #endregion Global Exception Handling
 
         private void DELETER(string directory)
         {
@@ -64,9 +81,9 @@ namespace Deleter
                     p.Start();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                // ignore
+                EasyLogger.Error(ex);
             }
 
             Environment.Exit(0);
