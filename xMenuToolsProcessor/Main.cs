@@ -162,7 +162,7 @@ namespace xMenuToolsProcessor
                 }
                 if (args[1] == Resources.CatchHandlerArgs)
                 {
-                    MessageForm(args[0], Resources.xMenuTools, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageLogging(args[0], Resources.xMenuTools, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 if (args[1] == Resources.AttributesMenuArgs)
                 {

@@ -31,9 +31,8 @@ namespace Deleter
 
                 WindowState = FormWindowState.Normal;
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
             }
         }
 
@@ -50,7 +49,6 @@ namespace Deleter
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
                         break;
                     }
 
@@ -74,14 +72,12 @@ namespace Deleter
                         p.Start();
                     }
                 }
-                catch (Exception ex)
+                catch
                 {
-                    MessageBox.Show(ex.Message);
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
             }
 
             Environment.Exit(0);

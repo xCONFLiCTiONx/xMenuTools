@@ -48,5 +48,29 @@ namespace xMenuToolsProcessor
                 return DialogResult.None;
             }
         }
+
+        public static  void MessageLogging(string text, string title = null, MessageBoxButtons buttons = MessageBoxButtons.OK, MessageBoxIcon icon = MessageBoxIcon.Information, MessageBoxDefaultButton defaultButton = MessageBoxDefaultButton.Button2)
+        {
+            try
+            {
+                // Log this message for debugging
+                if (icon == MessageBoxIcon.Error)
+                {
+                    EasyLogger.Error(text);
+                }
+                else if (icon == MessageBoxIcon.Warning)
+                {
+                    EasyLogger.Info(text);
+                }
+                else
+                {
+                    EasyLogger.Info(text);
+                }
+            }
+            catch (Exception ex)
+            {
+                EasyLogger.Error(ex);
+            }
+        }
     }
 }

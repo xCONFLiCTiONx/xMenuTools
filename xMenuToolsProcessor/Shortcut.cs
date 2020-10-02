@@ -9,7 +9,7 @@ namespace xMenuToolsProcessor
         {
             IWshRuntimeLibrary.WshShell shellClass = new IWshRuntimeLibrary.WshShell();
             //Create Shortcut for Application Settings
-            string settingsLink = Path.Combine(shortcutFolder, "Settings.lnk");
+            string settingsLink = Path.Combine(shortcutFolder, "xMenuTools Settings.lnk");
             IWshRuntimeLibrary.IWshShortcut shortcut = (IWshRuntimeLibrary.IWshShortcut)shellClass.CreateShortcut(settingsLink);
 
             string FileLocationInfo = "SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\xMenuTools";
