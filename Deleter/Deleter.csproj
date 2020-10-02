@@ -87,12 +87,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\EasyLogger\EasyLogger.csproj">
-      <Project>{e7d06aa7-a1fc-4582-8bbc-c8be27694bbb}</Project>
-      <Name>EasyLogger</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>

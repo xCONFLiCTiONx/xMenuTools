@@ -419,13 +419,27 @@ namespace xMenuTools
         {
             string appPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Microsoft\WindowsApps\Microsoft.WindowsTerminal_8wekyb3d8bbwe\wt.exe");
 
-            StartProcess.StartInfo(appPath, "-d " + FolderPath);
+            if (FolderPath.Contains(" "))
+            {
+                StartProcess.StartInfo(appPath, "-d " + "\"" + FolderPath + "\"");
+            }
+            else
+            {
+                StartProcess.StartInfo(appPath, "-d " + FolderPath);
+            }
         }
         private void OpenTerminalAsAdminMethod()
         {
             string appPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Microsoft\WindowsApps\Microsoft.WindowsTerminal_8wekyb3d8bbwe\wt.exe");
 
-            StartProcess.StartInfo(appPath, "-d " + FolderPath, false, true);
+            if (FolderPath.Contains(" "))
+            {
+                StartProcess.StartInfo(appPath, "-d " + "\"" + FolderPath + "\"", false, true);
+            }
+            else
+            {
+                StartProcess.StartInfo(appPath, "-d " + FolderPath, false, true);
+            }
         }
         private void OpenCmdAsUserMethod()
         {

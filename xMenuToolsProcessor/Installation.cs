@@ -99,7 +99,6 @@ namespace xMenuToolsProcessor
             }
             catch (Exception ex)
             {
-
                 MessageForm(ex.Message + Environment.NewLine + ex.StackTrace, Resources.xMenuTools, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Environment.Exit(0);
             }
@@ -159,9 +158,9 @@ namespace xMenuToolsProcessor
                     }
                     Directory.Delete(shortcutFolder, true);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    // continue
+                    EasyLogger.Error(ex);
                 }
 
                 try
@@ -175,9 +174,9 @@ namespace xMenuToolsProcessor
                         p.Start();
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    // continue
+                    EasyLogger.Error(ex);
                 }
 
                 Environment.Exit(0);
