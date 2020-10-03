@@ -47,7 +47,7 @@ namespace Deleter
                     {
                         Directory.Delete(directory, true);
                     }
-                    catch (Exception ex)
+                    catch
                     {
                         break;
                     }

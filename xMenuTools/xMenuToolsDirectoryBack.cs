@@ -9,7 +9,6 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using xMenuTools.Methods;
 using xMenuTools.Properties;
-using static xMenuToolsProcessor.SendMessage;
 
 namespace xMenuTools
 {

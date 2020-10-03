@@ -10,7 +10,6 @@ using System.Text;
 using System.Windows.Forms;
 using xMenuTools.Methods;
 using xMenuTools.Properties;
-using static xMenuToolsProcessor.SendMessage;
 
 [assembly: CLSCompliant(false)]
 namespace xMenuTools
