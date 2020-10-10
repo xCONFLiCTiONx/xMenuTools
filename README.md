@@ -2,8 +2,7 @@
 
 Extended context menu tools  
 
-[![Github All Releases](https://img.shields.io/github/downloads/xCONFLiCTiONx/xMenuTools/total.svg)]() [![GitHub](https://img.shields.io/github/license/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/blob/master/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/issues) [![GitHub issues](https://img.shields.io/github/stars/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/stargazers) [![Maintainability](https://api.codeclimate.com/v1/badges/780a0ac77157fdb3f14e/maintainability)](https://codeclimate.com/github/xCONFLiCTiONx/xMenuTools/maintainability)
+[![Github All Releases](https://img.shields.io/github/downloads/xCONFLiCTiONx/xMenuTools/total.svg)]() [![GitHub](https://img.shields.io/github/license/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/blob/master/LICENSE) [![GitHub issues](https://img.shields.io/github/stars/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/stargazers) [![GitHub issues](https://img.shields.io/github/issues/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/issues) [![Maintainability](https://api.codeclimate.com/v1/badges/780a0ac77157fdb3f14e/maintainability)](https://codeclimate.com/github/xCONFLiCTiONx/xMenuTools/maintainability)
 
 ## Language
 xMenuTools is English only so if you want to use it and have a different language on your computer you should be able to install the English Language pack in Windows and it should run however you will likely have to set it as the default language due to using directory names as strings within the program.
