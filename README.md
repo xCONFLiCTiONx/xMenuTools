@@ -19,10 +19,10 @@ Window 10 is the only operating system that I will provide support for. If you i
 * Added Windows Terminal to list of Command Lines in Directory Background
 
 ![All_Files](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/All_Files.jpg)
-![Attributes](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Attributes.jpg)
 ![Background](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Background.jpg)
 ![Directories](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Directories.jpg)
 ![Shortcuts](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Shortcuts.jpg)
+![Attributes](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Attributes.jpg)
 
 *SharpShell Credits:*
 ===================  
