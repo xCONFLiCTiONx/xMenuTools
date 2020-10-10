@@ -10,12 +10,19 @@ Extended context menu tools
 ## Language
 xMenuTools is English only so if you want to use it and have a different language on your computer you should be able to install the English Language pack in Windows and it should run however you will likely have to set it as the default language due to using directory names as strings within the program.
 
+## Operating System
+Window 10 is the only operating system that I will provide support for. If you install this on anything less than Windows 10 and it doesn't work you're on your own. Too many people are installing this on Windows 7 which is no longer supported by Microsoft and Windows 8/.1 is just a joke.
+
 ## Recent changes:
 * Added the latest version of [SharpShell](https://github.com/dwmkerr/sharpshell)
 * Open with notepad: Uses the program set as default for opening .txt files.
 * Added Windows Terminal to list of Command Lines in Directory Background
 
-![ScreenShot1](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Screenshot.jpg)
+![All_Files](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/All_Files.jpg)
+![Attributes](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Attributes.jpg)
+![Background](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Background.jpg)
+![Directories](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Directories.jpg)
+![Shortcuts](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Shortcuts.jpg)
 
 *SharpShell Credits:*
 ===================  
