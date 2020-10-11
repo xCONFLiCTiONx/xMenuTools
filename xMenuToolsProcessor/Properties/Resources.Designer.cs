@@ -696,7 +696,8 @@ namespace xMenuToolsProcessor.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Uninstall is complete.
         ///
-        ///Would you like to restart Explorer now?.
+        ///Explorer must be restarted to complete the uninstallation.
+        ///Would you like to restart Explorer now? .
         /// </summary>
         internal static string UninstallComplete {
             get {
