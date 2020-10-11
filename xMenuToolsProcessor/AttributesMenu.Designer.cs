@@ -84,7 +84,7 @@
             // 
             // panel10
             // 
-            this.panel10.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel10.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel10.Controls.Add(this.ShowHiddenCheckBox);
             this.panel10.Location = new System.Drawing.Point(-2, -2);
@@ -105,7 +105,7 @@
             // 
             // panel9
             // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel9.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel9.Controls.Add(this.ShowSystemCheckBox);
             this.panel9.Location = new System.Drawing.Point(-2, 27);
@@ -168,7 +168,7 @@
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel6.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.TimePicker3);
             this.panel6.Controls.Add(this.dateTimePicker3);
@@ -210,7 +210,7 @@
             // 
             // panel7
             // 
-            this.panel7.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel7.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel7.Controls.Add(this.label6);
             this.panel7.Controls.Add(this.TimePicker2);
@@ -252,7 +252,7 @@
             // 
             // panel11
             // 
-            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel11.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel11.Controls.Add(this.label5);
             this.panel11.Controls.Add(this.TimePicker1);
@@ -306,7 +306,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.ReadOnlyCheckBox);
             this.panel4.Location = new System.Drawing.Point(-1, 56);
@@ -327,7 +327,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel3.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.SystemCheckBox);
             this.panel3.Location = new System.Drawing.Point(-1, 27);
@@ -348,7 +348,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.HiddenCheckBox);
             this.panel2.Location = new System.Drawing.Point(-1, -2);
@@ -369,12 +369,13 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button1.Location = new System.Drawing.Point(336, 218);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 25);
             this.button1.TabIndex = 15;
             this.button1.Text = "Apply Now";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // AttributesMenu
