@@ -2,7 +2,7 @@
 
 Extended context menu tools  
 
-[![GitHub All Releases](https://img.shields.io/github/downloads/xCONFLiCTiONx/xMenuTools/total)](https://github.com/xCONFLiCTiONx/xMenuTools/releases) [![GitHub](https://img.shields.io/github/license/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/blob/master/LICENSE) [![GitHub issues](https://img.shields.io/github/stars/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/stargazers) [![GitHub issues](https://img.shields.io/github/issues/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/issues) [![Maintainability](https://api.codeclimate.com/v1/badges/780a0ac77157fdb3f14e/maintainability)](https://codeclimate.com/github/xCONFLiCTiONx/xMenuTools/maintainability)
+[![GitHub All Releases](https://img.shields.io/github/downloads/xCONFLiCTiONx/xMenuTools/total)](https://github.com/xCONFLiCTiONx/xMenuTools/releases) [![GitHub](https://img.shields.io/github/license/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/blob/master/LICENSE)[![GitHub issues](https://img.shields.io/github/stars/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/stargazers) [![GitHub issues](https://img.shields.io/github/issues/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/issues) [![Maintainability](https://api.codeclimate.com/v1/badges/780a0ac77157fdb3f14e/maintainability)](https://codeclimate.com/github/xCONFLiCTiONx/xMenuTools/maintainability)
 
 ## Notes
 *Contrary to what other websites are saying, xMenuTools is not portable by definition and should be installed to a non-removable drive.*
@@ -23,7 +23,9 @@ Extended context menu tools
     * Only Windows 10 is supported
     * GUI's are lighter
 
-![All_Files](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Screenshots/All_Files.jpg) ![Shortcuts](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Screenshots/Shortcuts.jpg) ![Directories](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Screenshots/Directories.jpg) ![Background](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Screenshots/Background.jpg) ![Attributes](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Screenshots/Attributes.jpg)
+![All_Files](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Screenshots/All_Files.jpg) ![Shortcuts](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Screenshots/Shortcuts.jpg)  
+![Directories](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Screenshots/Directories.jpg) ![Background](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Screenshots/Background.jpg)  
+![Attributes](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Screenshots/Attributes.jpg)
 
 *SharpShell Credits:*
 ===================  
