@@ -19,9 +19,29 @@ Extended context menu tools
 ## Change Log:
 * Version 5.1.0:
     * Added the latest version of [SharpShell](https://github.com/dwmkerr/sharpshell)
+* Version 5.2.0:
+    * Optimizations
+* Version 5.3.0:
+    * Optimizations
+* Version 5.4.0:
+    * Optimizations
 * Version 5.5.0:
     * Open with notepad: Uses the program set as default for opening .txt files.
     * Added Windows Terminal to list of Command Lines in Directory Background
+* Version 5.6.0:
+    * Optimizations
+* Version 5.7.0:
+    * Optimizations
+* Version 5.8.0:
+    * Optimizations
+* Version 5.9.0:
+    * Optimizations
+* Version 6.0.0:
+    * Optimizations
+* Version 7.0.0:
+    * Optimizations
+* Version 7.1.0:
+    * Optimizations
 * Version 7.2.0:
     * Only Windows 10 is supported
     * GUI's are lighter
