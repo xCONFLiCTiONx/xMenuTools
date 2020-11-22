@@ -2,6 +2,9 @@
 
 Extended context menu tools  
 
+## Requirements
+.NET Framework 4.7.2
+
 [![All Releases](https://img.shields.io/github/downloads/xCONFLiCTiONx/xMenuTools/total)](https://github.com/xCONFLiCTiONx/xMenuTools/releases) [![LICENSE](https://img.shields.io/github/license/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/blob/master/LICENSE) [![Stars](https://img.shields.io/github/stars/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/stargazers) [![Issues](https://img.shields.io/github/issues/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/issues) [![Maintainability](https://api.codeclimate.com/v1/badges/780a0ac77157fdb3f14e/maintainability)](https://codeclimate.com/github/xCONFLiCTiONx/xMenuTools/maintainability)  
 
 ## Notes
@@ -10,7 +13,7 @@ Extended context menu tools
 ## Language
 *xMenuTools is English only so if you want to use it and have a different language on your computer you should be able to install the English Language pack in Windows and it should run however you will likely have to set it as the default language due to using directory names as strings within the program.*
 
-## Operating System
+## Support
 *Window 10 is the only operating system that I will provide support for. If you install this on anything less than Windows 10 and it doesn't work you're on your own. Too many people are installing this on Windows 7 which is no longer supported by Microsoft and Windows 8/.1 is just a joke.*
 
 ## Change Log:
