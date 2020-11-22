@@ -16,6 +16,14 @@ Extended context menu tools
 ## Support
 *Window 10 is the only operating system that I will provide support for. If you install this on anything less than Windows 10 and it doesn't work you're on your own. Too many people are installing this on Windows 7 which is no longer supported by Microsoft and Windows 8/.1 is just a joke.*
 
+![All_Files](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Screenshots/All_Files.jpg) ![Shortcuts](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Screenshots/Shortcuts.jpg)  
+![Directories](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Screenshots/Directories.jpg) ![Background](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Screenshots/Background.jpg)  
+![Attributes](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Screenshots/Attributes.jpg)
+
+*SharpShell Credits:*
+===================  
+*Assembly Company: [Dave Kerr](https://github.com/dwmkerr)* | *Assembly Product: [SharpShell](https://github.com/dwmkerr/sharpshell)* | *Assembly Copyright: Copyright © Dave Kerr 2013* | *Assembly Webiste: [https://github.com/dwmkerr/sharpshell](https://github.com/dwmkerr/sharpshell)*
+
 ## Change Log:
 * Version 5.1.0:
     * Added the latest version of [SharpShell](https://github.com/dwmkerr/sharpshell)
@@ -45,11 +53,3 @@ Extended context menu tools
 * Version 7.2.0:
     * Only Windows 10 is supported
     * GUI's are lighter
-
-![All_Files](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Screenshots/All_Files.jpg) ![Shortcuts](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Screenshots/Shortcuts.jpg)  
-![Directories](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Screenshots/Directories.jpg) ![Background](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Screenshots/Background.jpg)  
-![Attributes](https://raw.githubusercontent.com/xCONFLiCTiONx/xMenuTools/master/Screenshots/Attributes.jpg)
-
-*SharpShell Credits:*
-===================  
-*Assembly Company: [Dave Kerr](https://github.com/dwmkerr)* | *Assembly Product: [SharpShell](https://github.com/dwmkerr/sharpshell)* | *Assembly Copyright: Copyright © Dave Kerr 2013* | *Assembly Webiste: [https://github.com/dwmkerr/sharpshell](https://github.com/dwmkerr/sharpshell)*
