@@ -54,20 +54,8 @@ namespace xMenuToolsProcessor
                     {
                         ExplorerRefresh.RefreshWindowsExplorer();
                     }
-                    // Install
-                    if (args[0] == Resources.InstallArgs || args[0] == Resources.InstallArgsShort)
-                    {
-                        if (IsElevated)
-                        {
-                            Installation.InstallerElevated();
-                        }
-                        else
-                        {
-                            Installation.InstallerUnelevated();
-                        }
-                    }
-                    // Uninstall
-                    if (args[0] == Resources.UninstallArgs || args[0] == Resources.UninstallArgsShort)
+                    // Installer
+                    if (args[0] == Resources.InstallArgs || args[0] == Resources.InstallArgsShort || args[0] == Resources.UninstallArgs || args[0] == Resources.UninstallArgsShort)
                     {
                         if (IsElevated)
                         {
