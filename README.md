@@ -53,3 +53,5 @@ Extended context menu tools
 * Version 7.2.0:
     * Only Windows 10 is supported
     * GUI's are lighter
+* Version 7.2.0:
+    * Default Installation path is now SystemDrive\Program Files\xMenuTools
