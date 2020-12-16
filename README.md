@@ -55,3 +55,5 @@ Extended context menu tools
     * GUI's are lighter
 * Version 7.3.0:
     * Default Installation path is now SystemDrive\Program Files\xMenuTools (https://github.com/xCONFLiCTiONx/xMenuTools/issues/2#issuecomment-731805475)
+* Version 7.4.0:
+    * Updated EasyLogger
