@@ -44,8 +44,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EasyLogger, Version=2.3.0.0, Culture=neutral, PublicKeyToken=157f051b2ef23119, processorArchitecture=MSIL">
-      <HintPath>..\packages\xCONFLiCTiONx.Logger.2.3.0\lib\net40-client\EasyLogger.dll</HintPath>
+    <Reference Include="EasyLogger, Version=2.4.0.0, Culture=neutral, PublicKeyToken=157f051b2ef23119, processorArchitecture=MSIL">
+      <HintPath>..\packages\xCONFLiCTiONx.Logger.2.4.0\lib\net40-client\EasyLogger.dll</HintPath>
     </Reference>
     <Reference Include="SharpShell, Version=2.7.2.0, Culture=neutral, PublicKeyToken=f14dc899472fe6fb, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpShell.2.7.2\lib\net40-client\SharpShell.dll</HintPath>
