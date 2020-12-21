@@ -100,31 +100,38 @@ namespace xMenuTools.Methods
         {
             try
             {
-                // Get : Set Attributes
-                FileAttributes attributes = File.GetAttributes(folderPath);
-                if ((attributes & FileAttributes.Hidden) == FileAttributes.Hidden)
+                if (Directory.Exists(folderPath) || File.Exists(folderPath))
                 {
-                    hidden = true;
+                    // Get : Set Attributes
+                    FileAttributes attributes = File.GetAttributes(folderPath);
+                    if ((attributes & FileAttributes.Hidden) == FileAttributes.Hidden)
+                    {
+                        hidden = true;
+                    }
+                    if ((attributes & FileAttributes.System) == FileAttributes.System)
+                    {
+                        system = true;
+                    }
+                    if ((attributes & FileAttributes.ReadOnly) == FileAttributes.ReadOnly)
+                    {
+                        readOnly = true;
+                    }
+                    if ((attributes & FileAttributes.Hidden) != FileAttributes.Hidden)
+                    {
+                        hidden = false;
+                    }
+                    if ((attributes & FileAttributes.System) != FileAttributes.System)
+                    {
+                        system = false;
+                    }
+                    if ((attributes & FileAttributes.ReadOnly) != FileAttributes.ReadOnly)
+                    {
+                        readOnly = false;
+                    }
                 }
-                if ((attributes & FileAttributes.System) == FileAttributes.System)
+                else
                 {
-                    system = true;
-                }
-                if ((attributes & FileAttributes.ReadOnly) == FileAttributes.ReadOnly)
-                {
-                    readOnly = true;
-                }
-                if ((attributes & FileAttributes.Hidden) != FileAttributes.Hidden)
-                {
-                    hidden = false;
-                }
-                if ((attributes & FileAttributes.System) != FileAttributes.System)
-                {
-                    system = false;
-                }
-                if ((attributes & FileAttributes.ReadOnly) != FileAttributes.ReadOnly)
-                {
-                    readOnly = false;
+                    return;
                 }
             }
             catch (Exception ex)

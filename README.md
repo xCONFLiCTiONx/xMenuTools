@@ -57,3 +57,5 @@ Extended context menu tools
     * Default Installation path is now SystemDrive\Program Files\xMenuTools (https://github.com/xCONFLiCTiONx/xMenuTools/issues/2#issuecomment-731805475)
 * Version 7.4.0:
     * Updated EasyLogger
+* Version 7.5.0:
+    * Logged error if right click on broken shortcut; added return if path doesn't exist in xMenuTools.Methods.AttributesInfo.GetFileAttributes
