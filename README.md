@@ -2,8 +2,7 @@
 
 Extended context menu tools  
 
-[![All Releases](https://img.shields.io/github/downloads/xCONFLiCTiONx/xMenuTools/total)](https://github.com/xCONFLiCTiONx/xMenuTools/releases) [![LICENSE](https://img.shields.io/github/license/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/blob/master/LICENSE) [![Stars](https://img.shields.io/github/stars/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/stargazers) [![Issues](https://img.shields.io/github/issues/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/issues) [![Maintainability](https://api.codeclimate.com/v1/badges/780a0ac77157fdb3f14e/maintainability)](https://codeclimate.com/github/xCONFLiCTiONx/xMenuTools/maintainability)  
-
+[![All Releases](https://img.shields.io/github/downloads/xCONFLiCTiONx/xMenuTools/total)](https://github.com/xCONFLiCTiONx/xMenuTools/releases) [![LICENSE](https://img.shields.io/github/license/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/blob/master/LICENSE) [![Stars](https://img.shields.io/github/stars/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/stargazers) [![Issues](https://img.shields.io/github/issues/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/issues) 
 ## Requirements
 .NET Framework 4.7.2
 
