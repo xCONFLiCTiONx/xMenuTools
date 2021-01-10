@@ -21,7 +21,7 @@ Extended context menu tools
 
 *SharpShell Credits:*
 ===================  
-*Assembly Company: [Dave Kerr](https://github.com/dwmkerr)* | *Assembly Product: [SharpShell](https://github.com/dwmkerr/sharpshell)* | *Assembly Copyright: Copyright © Dave Kerr 2013* | *Assembly Webiste: [https://github.com/dwmkerr/sharpshell](https://github.com/dwmkerr/sharpshell)*
+*Assembly Company: [Dave Kerr](https://github.com/dwmkerr)* | *Assembly Product: [SharpShell](https://github.com/dwmkerr/sharpshell)* | *Assembly Copyright: Copyright © Dave Kerr 2013* | *Assembly Website: [https://github.com/dwmkerr/sharpshell](https://github.com/dwmkerr/sharpshell)*
 
 ## Change Log:
 * Version 5.1.0:
