@@ -92,6 +92,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="SendMessage.cs" />
+    <Compile Include="SetRegistryItems.cs" />
     <Compile Include="Settings.cs">
       <SubType>Form</SubType>
     </Compile>

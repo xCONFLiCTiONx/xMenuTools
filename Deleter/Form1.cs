@@ -80,6 +80,11 @@ namespace Deleter
             {
             }
 
+            if (File.Exists(directory + "\\xMenuTools.exe") || File.Exists(directory + "\\xMenuTools.dll") || File.Exists(directory + "\\SharpShell.dll"))
+            {
+                MessageBox.Show("It appears that a program is locking some files and preventing them from being deleted. You will need to restart your computer to complete the uninstallation or manually delete it.", "xMenuTools", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
             Environment.Exit(0);
         }
     }

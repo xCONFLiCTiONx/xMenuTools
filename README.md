@@ -64,3 +64,5 @@ Extended context menu tools
   * Updated EasyLogger
 * Version 7.5.0:
   * Logged error if right click on broken shortcut; added return if path doesn't exist in xMenuTools.Methods.AttributesInfo.GetFileAttributes
+* Version 7.6.0:
+ * Added copy long path and copy as url. Fixed some minor issues. Fixed path name when opening file in text editor.

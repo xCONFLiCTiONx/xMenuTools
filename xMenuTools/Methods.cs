@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace xMenuTools.Methods
@@ -264,5 +265,17 @@ namespace xMenuTools.Methods
             }
             return result;
         }
+    }
+    internal static class NativeMethods
+    {
+        [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        [return: MarshalAs(UnmanagedType.U4)]
+        internal static extern int GetLongPathName(
+           [MarshalAs(UnmanagedType.LPTStr)]
+        string lpszShortPath,
+           [MarshalAs(UnmanagedType.LPTStr)]
+        StringBuilder lpszLongPath,
+           [MarshalAs(UnmanagedType.U4)]
+        int cchBuffer);
     }
 }

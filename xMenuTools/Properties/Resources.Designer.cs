@@ -154,6 +154,15 @@ namespace xMenuTools.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Copy Long Path.
+        /// </summary>
+        internal static string CopyLONGPathText {
+            get {
+                return ResourceManager.GetString("CopyLONGPathText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon CopyName {
@@ -188,6 +197,24 @@ namespace xMenuTools.Properties {
         internal static string CopyPathText {
             get {
                 return ResourceManager.GetString("CopyPathText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy Path as URL.
+        /// </summary>
+        internal static string CopyPathURLText {
+            get {
+                return ResourceManager.GetString("CopyPathURLText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy Short Path.
+        /// </summary>
+        internal static string CopySHORTPathText {
+            get {
+                return ResourceManager.GetString("CopySHORTPathText", resourceCulture);
             }
         }
         
@@ -354,7 +381,7 @@ namespace xMenuTools.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Open with Notepad.
+        ///   Looks up a localized string similar to Open with text editor.
         /// </summary>
         internal static string OpenNotepad {
             get {

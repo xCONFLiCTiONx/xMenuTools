@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using xMenuTools;
 using xMenuToolsProcessor.Properties;
 using static xMenuToolsProcessor.SendMessage;
 
@@ -49,32 +50,7 @@ namespace xMenuToolsProcessor
                 InstallInfo.SetValue("DisplayVersion", GetAssembly.AssemblyInformation("version"), RegistryValueKind.String);
                 /* User Settings */
 
-                // All Files
-                xMenuToolsSettings.SetValue("OpenNotepadFiles", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("BlockWithFirewallFiles", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("CopyPathFiles", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("CopyNameFiles", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("AttributesFiles", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("SymlinkFiles", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("TakeOwnershipFiles", 0x00000001, RegistryValueKind.DWord);
-                // All Files Shorcuts
-                xMenuToolsSettings.SetValue("AttributesShortcuts", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("OpenNotepadShort", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("CopyPathShortFiles", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("CopyNameShortFiles", 0x00000001, RegistryValueKind.DWord);
-                // Directories
-                xMenuToolsSettings.SetValue("BlockWithFirewallDirectory", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("CopyPathDirectory", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("CopyNameDirectory", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("AttributesDirectory", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("SymlinkDirectory", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("TakeOwnershipDirectory", 0x00000001, RegistryValueKind.DWord);
-                // Directory Background
-                xMenuToolsSettings.SetValue("AttributesDirectoryBack", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("CommandLinesDirectoryBack", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("FindWallpaperDirectoryBack", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("SystemFoldersDirectoryBack", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("PasteContentsDirectoryBack", 0x00000001, RegistryValueKind.DWord);
+                SetRegistryItems.SetItems();
 
                 // Create Shorcut in All Users Start Menu Programs
                 StringBuilder allUserProfile = new StringBuilder(260);
@@ -161,6 +137,7 @@ namespace xMenuToolsProcessor
                 catch (Exception ex)
                 {
                     EasyLogger.Error(ex);
+                    MessageBox.Show("Some errors may have occured. Please check the log for details.", "xMenuTools", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 try
@@ -177,16 +154,16 @@ namespace xMenuToolsProcessor
                 catch (Exception ex)
                 {
                     EasyLogger.Error(ex);
+                    MessageBox.Show("Some errors may have occured. Please check the log for details.", "xMenuTools", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-
-                Environment.Exit(0);
             }
             catch (Exception ex)
             {
                 MessageForm(ex.Message + Environment.NewLine + ex.StackTrace + Environment.NewLine + ex.Source + Environment.NewLine + ex.GetBaseException() + Environment.NewLine + ex.TargetSite, "xMenuTools", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                Environment.Exit(0);
+                MessageBox.Show("Some errors may have occured. Please check the log for details.", "xMenuTools", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+            Environment.Exit(0);
         }
 
         internal static void InstallerElevated()

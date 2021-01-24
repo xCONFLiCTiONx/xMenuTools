@@ -3,6 +3,7 @@ using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
+using xMenuTools;
 using xMenuToolsProcessor.Properties;
 using static xMenuToolsProcessor.SendMessage;
 
@@ -13,24 +14,30 @@ namespace xMenuToolsProcessor
         private static RegistryKey key;
         private const string SoftwarexMenuTools = "SOFTWARE\\xMenuTools\\Settings";
         private bool AllFilesCheckBoxesChecked = true;
-        private bool ShortcutsCheckBoxesChecked = true;
+        private bool ShortCheckBoxesChecked = true;
         private bool DirectoriesCheckBoxesChecked = true;
         private bool DirBackgroundCheckBoxesChecked = true;
         private object OpenNotepadFiles;
         private object BlockWithFirewallFiles;
-        private object CopyPathFiles;
         private object CopyNameFiles;
+        private object CopyPathFiles;
+        private object CopyURLFiles;
+        private object CopyLongPathFiles;
         private object AttributesFiles;
         private object SymlinkFiles;
         private object TakeOwnershipFiles;
-        private object AttributesShortcuts;
+        private object AttributesShort;
         private object OpenNotepadShort;
         private object SystemFoldersDirectoryBack;
-        private object CopyPathShortFiles;
         private object CopyNameShortFiles;
+        private object CopyPathShortFiles;
+        private object CopyURLShortFiles;
+        private object CopyLongPathShortFiles;
         private object BlockWithFirewallDirectory;
-        private object CopyPathDirectory;
         private object CopyNameDirectory;
+        private object CopyPathDirectory;
+        private object CopyURLDirectory;
+        private object CopyLongPathDirectory;
         private object AttributesDirectory;
         private object SymlinkDirectory;
         private object TakeOwnershipDirectory;
@@ -65,16 +72,20 @@ namespace xMenuToolsProcessor
                 {
                     OpenNotepadFiles = key.GetValue("OpenNotepadFiles");
                     BlockWithFirewallFiles = key.GetValue("BlockWithFirewallFiles");
-                    CopyPathFiles = key.GetValue("CopyPathFiles");
                     CopyNameFiles = key.GetValue("CopyNameFiles");
+                    CopyPathFiles = key.GetValue("CopyPathFiles");
+                    CopyURLFiles = key.GetValue("CopyURLFiles");
+                    CopyLongPathFiles = key.GetValue("CopyLongPathFiles");
                     AttributesFiles = key.GetValue("AttributesFiles");
                     SymlinkFiles = key.GetValue("SymlinkFiles");
                     TakeOwnershipFiles = key.GetValue("TakeOwnershipFiles");
-                    AttributesShortcuts = key.GetValue("AttributesShortcuts");
+                    AttributesShort = key.GetValue("AttributesShort");
                     OpenNotepadShort = key.GetValue("OpenNotepadShort");
                     SystemFoldersDirectoryBack = key.GetValue("SystemFoldersDirectoryBack");
-                    CopyPathShortFiles = key.GetValue("CopyPathShortFiles");
                     CopyNameShortFiles = key.GetValue("CopyNameShortFiles");
+                    CopyPathShortFiles = key.GetValue("CopyPathShortFiles");
+                    CopyURLShortFiles = key.GetValue("CopyURLShortFiles");
+                    CopyLongPathShortFiles = key.GetValue("CopyLongPathShortFiles");
                     PasteContentsDirectoryBack = key.GetValue("PasteContentsDirectoryBack");
 
                     if (OpenNotepadFiles != null)
@@ -91,6 +102,13 @@ namespace xMenuToolsProcessor
                             BlockWithFirewallCheckBox.Checked = true;
                         }
                     }
+                    if (CopyNameFiles != null)
+                    {
+                        if (CopyNameFiles.ToString() == "1")
+                        {
+                            CopyFileNameCheckBox.Checked = true;
+                        }
+                    }
                     if (CopyPathFiles != null)
                     {
                         if (CopyPathFiles.ToString() == "1")
@@ -98,11 +116,18 @@ namespace xMenuToolsProcessor
                             CopyFilePathCheckBox.Checked = true;
                         }
                     }
-                    if (CopyNameFiles != null)
+                    if (CopyURLFiles != null)
                     {
-                        if (CopyNameFiles.ToString() == "1")
+                        if (CopyURLFiles.ToString() == "1")
                         {
-                            CopyFileNameCheckBox.Checked = true;
+                            CopyURLFilesCheckBox.Checked = true;
+                        }
+                    }
+                    if (CopyLongPathFiles != null)
+                    {
+                        if (CopyLongPathFiles.ToString() == "1")
+                        {
+                            CopyLongPathFilesCheckBox.Checked = true;
                         }
                     }
                     if (AttributesFiles != null)
@@ -126,11 +151,11 @@ namespace xMenuToolsProcessor
                             TakeOwnershipFileCheckBox.Checked = true;
                         }
                     }
-                    if (AttributesShortcuts != null)
+                    if (AttributesShort != null)
                     {
-                        if (AttributesShortcuts.ToString() == "1")
+                        if (AttributesShort.ToString() == "1")
                         {
-                            AttributesShortcutsCheckbox.Checked = true;
+                            AttributesShortCheckbox.Checked = true;
                         }
                     }
                     if (OpenNotepadShort != null)
@@ -140,50 +165,39 @@ namespace xMenuToolsProcessor
                             ShortNotepadCheckbox.Checked = true;
                         }
                     }
-                    if (CopyPathShortFiles != null)
-                    {
-                        if (CopyPathShortFiles.ToString() == "1")
-                        {
-                            CopyPathShorcutCheckbox.Checked = true;
-                        }
-                    }
                     if (CopyNameShortFiles != null)
                     {
                         if (CopyNameShortFiles.ToString() == "1")
                         {
-                            CopyNameShortcutCheckbox.Checked = true;
+                            CopyNameShortCheckbox.Checked = true;
+                        }
+                    }
+                    if (CopyPathShortFiles != null)
+                    {
+                        if (CopyPathShortFiles.ToString() == "1")
+                        {
+                            CopyPathShortCheckbox.Checked = true;
+                        }
+                    }
+                    if (CopyURLShortFiles != null)
+                    {
+                        if (CopyURLShortFiles.ToString() == "1")
+                        {
+                            CopyURLShortCheckbox.Checked = true;
+                        }
+                    }
+                    if (CopyLongPathShortFiles != null)
+                    {
+                        if (CopyLongPathShortFiles.ToString() == "1")
+                        {
+                            CopyLongPathShortCheckbox.Checked = true;
                         }
                     }
                     GetSettingsFinal(key);
                 }
                 else
                 {
-                    // All Files
-                    key.SetValue("OpenNotepadFiles", 0x00000001, RegistryValueKind.DWord);
-                    key.SetValue("BlockWithFirewallFiles", 0x00000001, RegistryValueKind.DWord);
-                    key.SetValue("CopyPathFiles", 0x00000001, RegistryValueKind.DWord);
-                    key.SetValue("CopyNameFiles", 0x00000001, RegistryValueKind.DWord);
-                    key.SetValue("AttributesFiles", 0x00000001, RegistryValueKind.DWord);
-                    key.SetValue("SymlinkFiles", 0x00000001, RegistryValueKind.DWord);
-                    key.SetValue("TakeOwnershipFiles", 0x00000001, RegistryValueKind.DWord);
-                    // All Files Shorcuts
-                    key.SetValue("AttributesShortcuts", 0x00000001, RegistryValueKind.DWord);
-                    key.SetValue("OpenNotepadShort", 0x00000001, RegistryValueKind.DWord);
-                    key.SetValue("CopyPathShortFiles", 0x00000001, RegistryValueKind.DWord);
-                    key.SetValue("CopyNameShortFiles", 0x00000001, RegistryValueKind.DWord);
-                    // Directories
-                    key.SetValue("BlockWithFirewallDirectory", 0x00000001, RegistryValueKind.DWord);
-                    key.SetValue("CopyPathDirectory", 0x00000001, RegistryValueKind.DWord);
-                    key.SetValue("CopyNameDirectory", 0x00000001, RegistryValueKind.DWord);
-                    key.SetValue("AttributesDirectory", 0x00000001, RegistryValueKind.DWord);
-                    key.SetValue("SymlinkDirectory", 0x00000001, RegistryValueKind.DWord);
-                    key.SetValue("TakeOwnershipDirectory", 0x00000001, RegistryValueKind.DWord);
-                    // Directory Background
-                    key.SetValue("AttributesDirectoryBack", 0x00000001, RegistryValueKind.DWord);
-                    key.SetValue("CommandLinesDirectoryBack", 0x00000001, RegistryValueKind.DWord);
-                    key.SetValue("FindWallpaperDirectoryBack", 0x00000001, RegistryValueKind.DWord);
-                    key.SetValue("SystemFoldersDirectoryBack", 0x00000001, RegistryValueKind.DWord);
-                    key.SetValue("PasteContentsDirectoryBack", 0x00000001, RegistryValueKind.DWord);
+                    SetRegistryItems.SetItems();
                 }
             }
             catch (Win32Exception ex)
@@ -194,8 +208,10 @@ namespace xMenuToolsProcessor
         private void GetSettingsFinal(RegistryKey key)
         {
             BlockWithFirewallDirectory = key.GetValue("BlockWithFirewallDirectory");
-            CopyPathDirectory = key.GetValue("CopyPathDirectory");
             CopyNameDirectory = key.GetValue("CopyNameDirectory");
+            CopyPathDirectory = key.GetValue("CopyPathDirectory");
+            CopyURLDirectory = key.GetValue("CopyURLDirectory");
+            CopyLongPathDirectory = key.GetValue("CopyLongPathDirectory");
             AttributesDirectory = key.GetValue("AttributesDirectory");
             SymlinkDirectory = key.GetValue("SymlinkDirectory");
             TakeOwnershipDirectory = key.GetValue("TakeOwnershipDirectory");
@@ -211,6 +227,13 @@ namespace xMenuToolsProcessor
                     BlockFirewallDirectoryCheckBox.Checked = true;
                 }
             }
+            if (CopyNameDirectory != null)
+            {
+                if (CopyNameDirectory.ToString() == "1")
+                {
+                    CopyNameDirectoryCheckbox.Checked = true;
+                }
+            }
             if (CopyPathDirectory != null)
             {
                 if (CopyPathDirectory.ToString() == "1")
@@ -218,11 +241,18 @@ namespace xMenuToolsProcessor
                     CopyPathDirectoryCheckbox.Checked = true;
                 }
             }
-            if (CopyNameDirectory != null)
+            if (CopyURLDirectory != null)
             {
-                if (CopyNameDirectory.ToString() == "1")
+                if (CopyURLDirectory.ToString() == "1")
                 {
-                    CopyNameDirectoryCheckbox.Checked = true;
+                    CopyURLDirectoryCheckbox.Checked = true;
+                }
+            }
+            if (CopyLongPathDirectory != null)
+            {
+                if (CopyLongPathDirectory.ToString() == "1")
+                {
+                    CopyLongPathDirectoryCheckbox.Checked = true;
                 }
             }
             if (AttributesDirectory != null)
@@ -296,7 +326,7 @@ namespace xMenuToolsProcessor
             {
                 if (!checkbox.Checked && checkbox.Text != Resources.SelectAll)
                 {
-                    ShortcutsCheckBoxesChecked = false;
+                    ShortCheckBoxesChecked = false;
                 }
             }
             foreach (CheckBox checkbox in tabPage3.Controls)
@@ -317,9 +347,9 @@ namespace xMenuToolsProcessor
             {
                 AllFilesSelectAllCheckbox.Checked = true;
             }
-            if (ShortcutsCheckBoxesChecked)
+            if (ShortCheckBoxesChecked)
             {
-                ShorcutsSelectAllCheckbox.Checked = true;
+                ShortSelectAllCheckbox.Checked = true;
             }
             if (DirectoriesCheckBoxesChecked)
             {
@@ -355,6 +385,18 @@ namespace xMenuToolsProcessor
             }
         }
 
+        private void CopyFileNameCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CopyFileNameCheckBox.Checked)
+            {
+                key.SetValue("CopyNameFiles", 0x00000001, RegistryValueKind.DWord);
+            }
+            else
+            {
+                key.SetValue("CopyNameFiles", 0x00000000, RegistryValueKind.DWord);
+            }
+        }
+
         private void CopyFilePathCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (CopyFilePathCheckBox.Checked)
@@ -367,15 +409,27 @@ namespace xMenuToolsProcessor
             }
         }
 
-        private void CopyFileNameCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void CopyURLFilesCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (CopyFileNameCheckBox.Checked)
+            if (CopyURLFilesCheckBox.Checked)
             {
-                key.SetValue("CopyNameFiles", 0x00000001, RegistryValueKind.DWord);
+                key.SetValue("CopyURLFiles", 0x00000001, RegistryValueKind.DWord);
             }
             else
             {
-                key.SetValue("CopyNameFiles", 0x00000000, RegistryValueKind.DWord);
+                key.SetValue("CopyURLFiles", 0x00000000, RegistryValueKind.DWord);
+            }
+        }
+
+        private void CopyLongPathFiles_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CopyLongPathFilesCheckBox.Checked)
+            {
+                key.SetValue("CopyLongPathFiles", 0x00000001, RegistryValueKind.DWord);
+            }
+            else
+            {
+                key.SetValue("CopyLongPathFiles", 0x00000000, RegistryValueKind.DWord);
             }
         }
 
@@ -414,16 +468,16 @@ namespace xMenuToolsProcessor
                 key.SetValue("TakeOwnershipFiles", 0x00000000, RegistryValueKind.DWord);
             }
         }
-        // All Files Shortcuts
-        private void AttributesShortcutsCheckbox_CheckedChanged(object sender, EventArgs e)
+        // All Files Short
+        private void AttributesShortCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-            if (AttributesShortcutsCheckbox.Checked)
+            if (AttributesShortCheckbox.Checked)
             {
-                key.SetValue("AttributesShortcuts", 0x00000001, RegistryValueKind.DWord);
+                key.SetValue("AttributesShort", 0x00000001, RegistryValueKind.DWord);
             }
             else
             {
-                key.SetValue("AttributesShortcuts", 0x00000000, RegistryValueKind.DWord);
+                key.SetValue("AttributesShort", 0x00000000, RegistryValueKind.DWord);
             }
         }
 
@@ -439,9 +493,21 @@ namespace xMenuToolsProcessor
             }
         }
 
-        private void CopyPathShorcutCheckbox_CheckedChanged(object sender, EventArgs e)
+        private void CopyNameShortCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-            if (CopyPathShorcutCheckbox.Checked)
+            if (CopyNameShortCheckbox.Checked)
+            {
+                key.SetValue("CopyNameShortFiles", 0x00000001, RegistryValueKind.DWord);
+            }
+            else
+            {
+                key.SetValue("CopyNameShortFiles", 0x00000000, RegistryValueKind.DWord);
+            }
+        }
+
+        private void CopyPathShortCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CopyPathShortCheckbox.Checked)
             {
                 key.SetValue("CopyPathShortFiles", 0x00000001, RegistryValueKind.DWord);
             }
@@ -451,15 +517,27 @@ namespace xMenuToolsProcessor
             }
         }
 
-        private void CopyNameShortcutCheckbox_CheckedChanged(object sender, EventArgs e)
+        private void CopyURLShortCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-            if (CopyNameShortcutCheckbox.Checked)
+            if (CopyURLShortCheckbox.Checked)
             {
-                key.SetValue("CopyNameShortFiles", 0x00000001, RegistryValueKind.DWord);
+                key.SetValue("CopyURLShortFiles", 0x00000001, RegistryValueKind.DWord);
             }
             else
             {
-                key.SetValue("CopyNameShortFiles", 0x00000000, RegistryValueKind.DWord);
+                key.SetValue("CopyURLShortFiles", 0x00000000, RegistryValueKind.DWord);
+            }
+        }
+
+        private void CopyLongPathShortCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CopyLongPathShortCheckbox.Checked)
+            {
+                key.SetValue("CopyLongPathShortFiles", 0x00000001, RegistryValueKind.DWord);
+            }
+            else
+            {
+                key.SetValue("CopyLongPathShortFiles", 0x00000000, RegistryValueKind.DWord);
             }
         }
         // Directories
@@ -475,6 +553,18 @@ namespace xMenuToolsProcessor
             }
         }
 
+        private void CopyNameDirectoryCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CopyNameDirectoryCheckbox.Checked)
+            {
+                key.SetValue("CopyNameDirectory", 0x00000001, RegistryValueKind.DWord);
+            }
+            else
+            {
+                key.SetValue("CopyNameDirectory", 0x00000000, RegistryValueKind.DWord);
+            }
+        }
+
         private void CopyPathDirectoryCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             if (CopyPathDirectoryCheckbox.Checked)
@@ -487,15 +577,27 @@ namespace xMenuToolsProcessor
             }
         }
 
-        private void CopyNameDirectoryCheckbox_CheckedChanged(object sender, EventArgs e)
+        private void CopyURLDirectoryCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-            if (CopyNameDirectoryCheckbox.Checked)
+            if (CopyURLDirectoryCheckbox.Checked)
             {
-                key.SetValue("CopyNameDirectory", 0x00000001, RegistryValueKind.DWord);
+                key.SetValue("CopyURLDirectory", 0x00000001, RegistryValueKind.DWord);
             }
             else
             {
-                key.SetValue("CopyNameDirectory", 0x00000000, RegistryValueKind.DWord);
+                key.SetValue("CopyURLDirectory", 0x00000000, RegistryValueKind.DWord);
+            }
+        }
+
+        private void CopyLongPathDirectoryCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CopyLongPathDirectoryCheckbox.Checked)
+            {
+                key.SetValue("CopyLongPathDirectory", 0x00000001, RegistryValueKind.DWord);
+            }
+            else
+            {
+                key.SetValue("CopyLongPathDirectory", 0x00000000, RegistryValueKind.DWord);
             }
         }
 
@@ -630,6 +732,8 @@ namespace xMenuToolsProcessor
                 BlockFirewallDirectoryCheckBox.Checked = true;
                 CopyNameDirectoryCheckbox.Checked = true;
                 CopyPathDirectoryCheckbox.Checked = true;
+                CopyURLDirectoryCheckbox.Checked = true;
+                CopyLongPathDirectoryCheckbox.Checked = true;
                 SymLinkDirectoryCheckbox.Checked = true;
                 TakeOwnershipDirectoryCheckbox.Checked = true;
             }
@@ -640,28 +744,34 @@ namespace xMenuToolsProcessor
                 BlockFirewallDirectoryCheckBox.Checked = false;
                 CopyNameDirectoryCheckbox.Checked = false;
                 CopyPathDirectoryCheckbox.Checked = false;
+                CopyURLDirectoryCheckbox.Checked = false;
+                CopyLongPathDirectoryCheckbox.Checked = false;
                 SymLinkDirectoryCheckbox.Checked = false;
                 TakeOwnershipDirectoryCheckbox.Checked = false;
             }
         }
 
-        private void ShorcutsSelectAllCheckbox_CheckedChanged(object sender, EventArgs e)
+        private void ShortSelectAllCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-            if (ShorcutsSelectAllCheckbox.Checked)
+            if (ShortSelectAllCheckbox.Checked)
             {
-                ShorcutsSelectAllCheckbox.Text = Resources.SelectNone;
-                AttributesShortcutsCheckbox.Checked = true;
+                ShortSelectAllCheckbox.Text = Resources.SelectNone;
+                AttributesShortCheckbox.Checked = true;
                 ShortNotepadCheckbox.Checked = true;
-                CopyPathShorcutCheckbox.Checked = true;
-                CopyNameShortcutCheckbox.Checked = true;
+                CopyNameShortCheckbox.Checked = true;
+                CopyPathShortCheckbox.Checked = true;
+                CopyURLShortCheckbox.Checked = true;
+                CopyLongPathShortCheckbox.Checked = true;
             }
             else
             {
-                ShorcutsSelectAllCheckbox.Text = Resources.SelectAll;
-                AttributesShortcutsCheckbox.Checked = false;
+                ShortSelectAllCheckbox.Text = Resources.SelectAll;
+                AttributesShortCheckbox.Checked = false;
                 ShortNotepadCheckbox.Checked = false;
-                CopyPathShorcutCheckbox.Checked = false;
-                CopyNameShortcutCheckbox.Checked = false;
+                CopyNameShortCheckbox.Checked = false;
+                CopyPathShortCheckbox.Checked = false;
+                CopyURLShortCheckbox.Checked = false;
+                CopyLongPathShortCheckbox.Checked = false;
             }
         }
 

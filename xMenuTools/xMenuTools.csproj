@@ -61,6 +61,7 @@
     <Compile Include="..\SharedAssemblyInfo.cs">
       <Link>SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="SetRegistryItems.cs" />
     <Compile Include="xMenuToolsDirectory.cs" />
     <Compile Include="xMenuToolsDirectoryBack.cs" />
     <Compile Include="xMenuToolsFiles.cs" />

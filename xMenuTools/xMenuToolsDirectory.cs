@@ -22,7 +22,7 @@ namespace xMenuTools
         private static readonly RegistryKey ExplorerAdvanced = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", true);
         private readonly CultureInfo culture = CultureInfo.CurrentCulture;
         private ContextMenuStrip Menu;
-        private ToolStripMenuItem xMenuToolsMenu, BlockFirewall, CopyPath, CopyName, Attributes, SymLink, TakeOwnership;
+        private ToolStripMenuItem xMenuToolsMenu, BlockFirewall, CopyName, CopyPath, CopyPathURL, CopyLONGPath, Attributes, SymLink, TakeOwnership;
         private ToolStripMenuItem AttributesMenu, HiddenAttributes, SystemAttributes, ReadOnlyAttributes, ShowHidden, HideHidden, ShowSystem, HideSystem;
 
         protected override bool CanShowMenu()
@@ -48,17 +48,29 @@ namespace xMenuTools
                         BlockFirewall.Text = Resources.BlockAllText;
                         BlockFirewall.Name = "BlockFirewall";
                     }
+                    // CopyName
+                    using (CopyName = new ToolStripMenuItem())
+                    {
+                        CopyName.Text = Resources.CopyNameText;
+                        CopyName.Name = "CopyName";
+                    }
                     // CopyPath
                     using (CopyPath = new ToolStripMenuItem())
                     {
                         CopyPath.Text = Resources.CopyPathText;
                         CopyPath.Name = "CopyPath";
                     }
-                    // CopyName
-                    using (CopyName = new ToolStripMenuItem())
+                    // CopyPathURL
+                    using (CopyPathURL = new ToolStripMenuItem())
                     {
-                        CopyName.Text = Resources.CopyNameText;
-                        CopyName.Name = "CopyName";
+                        CopyPathURL.Text = Resources.CopyPathURLText;
+                        CopyPathURL.Name = "CopyPathURL";
+                    }
+                    // CopyLONGPath
+                    using (CopyLONGPath = new ToolStripMenuItem())
+                    {
+                        CopyLONGPath.Text = Resources.CopyLONGPathText;
+                        CopyLONGPath.Name = "CopyLONGPath";
                     }
                     // Attributes
                     using (Attributes = new ToolStripMenuItem())
@@ -124,32 +136,7 @@ namespace xMenuTools
             RegistryKey xMenuToolsSettings = Registry.CurrentUser.CreateSubKey("SOFTWARE\\xMenuTools\\Settings");
             if (xMenuToolsSettings == null)
             {
-                // All Files
-                xMenuToolsSettings.SetValue("OpenNotepadFiles", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("BlockWithFirewallFiles", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("CopyPathFiles", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("CopyNameFiles", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("AttributesFiles", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("SymlinkFiles", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("TakeOwnershipFiles", 0x00000001, RegistryValueKind.DWord);
-                // All Files Shorcuts
-                xMenuToolsSettings.SetValue("AttributesShortcuts", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("OpenNotepadShort", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("CopyPathShortFiles", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("CopyNameShortFiles", 0x00000001, RegistryValueKind.DWord);
-                // Directories
-                xMenuToolsSettings.SetValue("BlockWithFirewallDirectory", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("CopyPathDirectory", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("CopyNameDirectory", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("AttributesDirectory", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("SymlinkDirectory", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("TakeOwnershipDirectory", 0x00000001, RegistryValueKind.DWord);
-                // Directory Background
-                xMenuToolsSettings.SetValue("AttributesDirectoryBack", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("CommandLinesDirectoryBack", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("FindWallpaperDirectoryBack", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("SystemFoldersDirectoryBack", 0x00000001, RegistryValueKind.DWord);
-                xMenuToolsSettings.SetValue("PasteContentsDirectoryBack", 0x00000001, RegistryValueKind.DWord);
+                SetRegistryItems.SetItems();
             }
         }
         private void MenuDeveloper()
@@ -161,8 +148,10 @@ namespace xMenuTools
             // Icons
             xMenuToolsMenu.Image = Resources.MAIN_ICON.ToBitmap();
             BlockFirewall.Image = Resources.Firewall.ToBitmap();
-            CopyPath.Image = Resources.CopyPath.ToBitmap();
             CopyName.Image = Resources.CopyName.ToBitmap();
+            CopyPath.Image = Resources.CopyPath.ToBitmap();
+            CopyPathURL.Image = Resources.CopyPath.ToBitmap();
+            CopyLONGPath.Image = Resources.CopyPath.ToBitmap();
             Attributes.Image = Resources.FileAttributes.ToBitmap();
             AttributesMenu.Image = Resources.MAIN_ICON.ToBitmap();
             SymLink.Image = Resources.SymLink.ToBitmap();
@@ -172,8 +161,10 @@ namespace xMenuTools
 
             // Subscriptions
             BlockFirewall.Click += (sender, args) => BlockFirewallMethod();
-            CopyPath.Click += (sender, args) => CopyPathMethod();
             CopyName.Click += (sender, args) => CopyNameMethod();
+            CopyPath.Click += (sender, args) => CopyPathMethod();
+            CopyPathURL.Click += (sender, args) => CopyPathURLMethod();
+            CopyLONGPath.Click += (sender, args) => CopyLONGPathMethod();
             AttributesMenu.Click += (sender, args) => AttributesMenuMethod();
             HiddenAttributes.Click += (sender, args) => HiddenAttributesMethod();
             SystemAttributes.Click += (sender, args) => SystemAttributesMethod();
@@ -185,6 +176,7 @@ namespace xMenuTools
             SymLink.Click += (sender, args) => SymLinkMethod();
             TakeOwnership.Click += (sender, args) => TakeOwnershipMethod();
         }
+
         // Add Menu Items
         private void AddMenuItems()
         {
@@ -197,6 +189,14 @@ namespace xMenuTools
                     xMenuToolsMenu.DropDownItems.Add(BlockFirewall);
                 }
             }
+            object CopyNameDirectory = xMenuToolsSettings.GetValue("CopyNameDirectory");
+            if (CopyNameDirectory != null)
+            {
+                if (CopyNameDirectory.ToString() == "1")
+                {
+                    xMenuToolsMenu.DropDownItems.Add(CopyName);
+                }
+            }
             object CopyPathDirectory = xMenuToolsSettings.GetValue("CopyPathDirectory");
             if (CopyPathDirectory != null)
             {
@@ -205,12 +205,20 @@ namespace xMenuTools
                     xMenuToolsMenu.DropDownItems.Add(CopyPath);
                 }
             }
-            object CopyNameDirectory = xMenuToolsSettings.GetValue("CopyNameDirectory");
-            if (CopyNameDirectory != null)
+            object CopyURLDirectory = xMenuToolsSettings.GetValue("CopyURLDirectory");
+            if (CopyURLDirectory != null)
             {
-                if (CopyNameDirectory.ToString() == "1")
+                if (CopyURLDirectory.ToString() == "1")
                 {
-                    xMenuToolsMenu.DropDownItems.Add(CopyName);
+                    xMenuToolsMenu.DropDownItems.Add(CopyPathURL);
+                }
+            }
+            object CopyLONGPathDirectory = xMenuToolsSettings.GetValue("CopyLONGPathDirectory");
+            if (CopyLONGPathDirectory != null)
+            {
+                if (CopyLONGPathDirectory.ToString() == "1")
+                {
+                    xMenuToolsMenu.DropDownItems.Add(CopyLONGPath);
                 }
             }
             object AttributesDirectory = xMenuToolsSettings.GetValue("AttributesDirectory");
@@ -339,17 +347,36 @@ namespace xMenuTools
             string[] array = SelectedItemPaths.Cast<string>().ToArray();
             StartProcess.StartInfo(AttributesInfo.GetAssembly.AssemblyInformation("directory") + @"\xMenuTools.exe", "\"" + array.ToStringArray(false) + "\" " + "-firewallfolder", false, true);
         }
+        private void CopyNameMethod()
+        {
+            Clipboard.Clear();
+            string[] array = SelectedItemPaths.Cast<string>().ToArray();
+            Clipboard.SetText(array.ToStringArray(true));
+        }
         private void CopyPathMethod()
         {
             Clipboard.Clear();
             string[] array = SelectedItemPaths.Cast<string>().ToArray();
             Clipboard.SetText(array.ToStringArray(false));
         }
-        private void CopyNameMethod()
+        private void CopyPathURLMethod()
         {
             Clipboard.Clear();
             string[] array = SelectedItemPaths.Cast<string>().ToArray();
-            Clipboard.SetText(array.ToStringArray(true));
+            try
+            {
+                Clipboard.SetText(new Uri(array.ToStringArray(false)).AbsoluteUri);
+            }
+            catch (Exception ex)
+            {
+                EasyLogger.Error(ex);
+            }
+        }
+        private void CopyLONGPathMethod()
+        {
+            Clipboard.Clear();
+            string[] array = SelectedItemPaths.Cast<string>().ToArray();
+            Clipboard.SetText(@"\\?\" + array.ToStringArray(false));
         }
         private void AttributesMenuMethod()
         {

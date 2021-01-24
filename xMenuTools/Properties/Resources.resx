@@ -197,7 +197,7 @@
     <value>xMenuTools</value>
   </data>
   <data name="OpenNotepad" xml:space="preserve">
-    <value>Open with Notepad</value>
+    <value>Open with text editor</value>
   </data>
   <data name="ReadOnlyAttributes" xml:space="preserve">
     <value>Set Read-only Attribute</value>
@@ -261,5 +261,14 @@
   </data>
   <data name="terminal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\terminal.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CopyLONGPathText" xml:space="preserve">
+    <value>Copy Long Path</value>
+  </data>
+  <data name="CopyPathURLText" xml:space="preserve">
+    <value>Copy Path as URL</value>
+  </data>
+  <data name="CopySHORTPathText" xml:space="preserve">
+    <value>Copy Short Path</value>
   </data>
 </root>
