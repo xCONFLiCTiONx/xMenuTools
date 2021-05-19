@@ -14,6 +14,23 @@ namespace Deleter
             {
                 InitializeComponent();
 
+                try
+                {
+                    Process[] chrome = Process.GetProcessesByName("chrome");
+                    Process[] OUTLOOK = Process.GetProcessesByName("OUTLOOK");
+                    if (chrome.Length > 0)
+                    {
+                        MessageBox.Show("It appears that Chrome is currently running and may lock some files. Please close Chrome and then press OK to continue.", "xMenuTools", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    if (OUTLOOK.Length > 0)
+                    {
+                        MessageBox.Show("It appears that Outlook is currently running and may lock some files. Please close Outlook and then press OK to continue.", "xMenuTools", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch
+                {
+                }
+
                 if (args.Length > 0)
                 {
                     Thread t = new Thread(() => DELETER(args[0]))

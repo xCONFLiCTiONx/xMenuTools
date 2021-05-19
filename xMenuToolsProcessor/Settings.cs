@@ -49,6 +49,7 @@ namespace xMenuToolsProcessor
         public Settings()
         {
             InitializeComponent();
+
             key = Registry.CurrentUser.CreateSubKey(SoftwarexMenuTools);
             key = Registry.CurrentUser.OpenSubKey(SoftwarexMenuTools, true);
             System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
@@ -706,6 +707,8 @@ namespace xMenuToolsProcessor
                 BlockWithFirewallCheckBox.Checked = true;
                 CopyFileNameCheckBox.Checked = true;
                 CopyFilePathCheckBox.Checked = true;
+                CopyURLFilesCheckBox.Checked = true;
+                CopyLongPathFilesCheckBox.Checked = true;
                 FileAttributesCheckBox.Checked = true;
                 FileSymLinkCheckBox.Checked = true;
                 TakeOwnershipFileCheckBox.Checked = true;
@@ -717,6 +720,8 @@ namespace xMenuToolsProcessor
                 BlockWithFirewallCheckBox.Checked = false;
                 CopyFileNameCheckBox.Checked = false;
                 CopyFilePathCheckBox.Checked = false;
+                CopyURLFilesCheckBox.Checked = false;
+                CopyLongPathFilesCheckBox.Checked = false;
                 FileAttributesCheckBox.Checked = false;
                 FileSymLinkCheckBox.Checked = false;
                 TakeOwnershipFileCheckBox.Checked = false;
