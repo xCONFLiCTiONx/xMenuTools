@@ -2,6 +2,8 @@
 
 Extended context menu tools  
 
+Deprecated but supported! Please use [XtendedMenu](https://github.com/xCONFLiCTiONx/XtendedMenu) instead!  
+
 [![All Releases](https://img.shields.io/github/downloads/xCONFLiCTiONx/xMenuTools/total)](https://github.com/xCONFLiCTiONx/xMenuTools/releases) [![LICENSE](https://img.shields.io/github/license/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/blob/master/LICENSE) [![Stars](https://img.shields.io/github/stars/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/stargazers) [![Issues](https://img.shields.io/github/issues/xCONFLiCTiONx/xMenuTools)](https://github.com/xCONFLiCTiONx/xMenuTools/issues)
 
 ## Requirements
