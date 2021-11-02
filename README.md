@@ -1,5 +1,7 @@
 # xMenuTools
 
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate?business=GKLE6HYQE46SA&no_recurring=0&item_name=i%21i%21i%21+NOTE+WHAT+THIS+DONATION+IS+FOR+i%21i%21i%21&currency_code=USD)
+
 Extended context menu tools  
 
 _________________________
